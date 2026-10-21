@@ -1,6 +1,6 @@
 # MCP onboarding for Copilot CLI
 
-No secrets belong in these files or in `maq-project.json`. Authenticate interactively; never paste tokens.
+No secrets belong in these files or in `maq-project.toon`. Authenticate interactively; never paste tokens. The TOON contains platform identifiers only; workflow policy is baked into the skills.
 
 Tool names vary by server version. After connecting, rediscover tool schemas and do not assume argument shapes.
 
@@ -49,6 +49,6 @@ Used for semantic model and report discovery, bounded DAX (`FabricIQ-*`), and bo
 
 ## Checks before use
 
-- The signed-in identity has access to the DEV workspaces in `maq-project.json` only as far as policy allows.
-- Query limits (`fabric.queryLimits`) are honored by the execution surface; if the tool cannot enforce a timeout, report the limitation.
+- The signed-in identity has access to the DEV workspaces in `fabric.devWorkspaceIds` in `maq-project.toon` only as far as policy allows. Validate workspace identity and environment; lists must not overlap.
+- The execution surface honors fixed limits: stated purpose, at most 250 returned rows, and a 60-second timeout/budget where supported. If timeout enforcement is unavailable, report the limitation and narrow the scan.
 - FabricIQ discovery covers semantic models and reports only; other workloads use the `maq-fabric-*` adapters and their companion skills.

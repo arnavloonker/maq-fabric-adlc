@@ -1,6 +1,6 @@
 # /verify procedure
 
-1. **Scope.** Resolve the consumer repository root via Git and `maq-project.json`. Identify story ID and target version (commit SHA, artifact IDs/versions). Reject paths escaping the root.
+1. **Scope.** Resolve the consumer repository root via Git and required platform identifiers from `maq-project.toon`. Identify story ID and target version (commit SHA, artifact IDs/versions). Reject paths escaping the root.
 2. **Context.** Read the story (`azure-devops-wit_work_item` `get`, `list_comments`), its approach section, PR/commit diff, and only relevant domain records. Consult /best-practices for each artifact type reviewed; do not claim consultation if retrieval failed, and surface failures.
 3. **Contract.** If the story holds an approved contract/seam, copy it to `contract.json` with `origin: reused-from-approach`. Otherwise (or if scope/criteria changed) draft one: criteria, target version, DEV environment, permitted checks, data limits, expected evidence, cleanup. Present it and wait for explicit engineer approval. No approval: verdict `blocked`, stop.
 4. **Discover tools.** Inspect available schemas for the needed read/query surfaces (e.g. `FabricIQ-ExecuteQuery` for bounded DAX, SQL endpoint read-only query). Substitute only when semantics, scope, permissions and approval boundaries are equivalent; a generic SQL executor that can mutate is not equivalent to a read-only query. Record substitutions.

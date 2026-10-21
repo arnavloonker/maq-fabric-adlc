@@ -11,5 +11,5 @@ Scope: Lakehouses, notebooks, Spark job definitions, environments, and related i
 Rules:
 - Mutate and execute only in approved DEV workspaces, within an approved change set.
 - Use bounded, purpose-stated queries; prefer schema and aggregates over raw rows.
-- Apply the configured dev isolation prefix or branch workspace.
+- Use a verified DEV branch workspace or the fixed `<branch_slug>_` prefix.
 - If the matrix says `planned`, `manual-only`, or `blocked`, or the companion skill is absent, stop and report the gap with the manual path. Never touch UAT or PROD.

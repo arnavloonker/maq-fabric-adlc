@@ -5,7 +5,7 @@ Outcome-based ADO child tasks under one story, with dependency links. Result goe
 
 ## Inputs
 - Story ID (required). Current approach section, agreed test seam, and draft verification contract (read from the story).
-- Project sizing conventions from `maq-project.json` (ADO project, task type, tags, iteration path) when present.
+- ADO identifiers and placement paths from `maq-project.toon`. Use the native `Task` type. Tasks are vertical end-to-end tracer bullets sized to one context window, never horizontal layer-only slices. Ask one granularity question at a time with a recommended answer until approved. Consult repository-local engineering guidance when present.
 - Optional: engineer preferences on granularity.
 
 ## Slice rules

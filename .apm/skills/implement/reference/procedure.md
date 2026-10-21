@@ -1,14 +1,14 @@
 # /implement procedure
 
 ## 1. Scope and context
-1. Resolve the consumer repository root via Git; load relevant `maq-project.json` settings and `capability-matrix.json`. Missing settings block only dependent steps.
+1. Resolve the consumer repository root via Git; load required platform identifiers from `maq-project.toon` and `capability-matrix.json`. Missing dependencies block only dependent steps.
 2. Read the story, selected tasks, comments, build-ready status, agreed `/approach` seam, and blockers (`azure-devops-wit_work_item`: `get`, `list_comments`). Stop and recommend `/approach` if no seam exists; `/domain` or `/brainstorm` for open decisions.
 3. Load only relevant domain records and references.
 
 ## 2. Git isolation
 1. Inspect `git status`, `git worktree list`, current branch, and stashes. Record dirty state.
 2. Derive `<branch_slug>` deterministically from the story ID and title (lowercase, `[a-z0-9_]`, no leading digit, max 40 chars), for example `s1234_orders_gold`.
-3. Create a dedicated branch from the configured base in a new worktree beside the repo (`git worktree add`). Reuse an existing worktree for the same scope. Never reset, clean, checkout over, or stash-drop dirty work; if the primary tree is dirty, leave it untouched and work only in the new worktree.
+3. Resolve the ADO repository's default branch at runtime and create a dedicated branch from it in a new worktree beside the repo (`git worktree add`). Reuse an existing worktree for the same scope. Never reset, clean, checkout over, or stash-drop dirty work; if the primary tree is dirty, leave it untouched and work only in the new worktree.
 4. Record branch, worktree path, and base commit.
 
 ## 3. Fabric DEV isolation

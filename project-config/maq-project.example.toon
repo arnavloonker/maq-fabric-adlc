@@ -1,0 +1,11 @@
+ado:
+  organizationUrl: "https://dev.azure.com/REPLACE_ORG"
+  project: REPLACE_PROJECT
+  team: REPLACE_TEAM
+  repository: REPLACE_REPOSITORY_ID
+  areaPath: "REPLACE_PROJECT\\REPLACE_AREA"
+  iterationPath: "REPLACE_PROJECT\\REPLACE_ITERATION"
+fabric:
+  devWorkspaceIds[1]: REPLACE_DEV_WORKSPACE_GUID
+  uatWorkspaceIds[1]: REPLACE_UAT_WORKSPACE_GUID
+  prodWorkspaceIds[1]: REPLACE_PROD_WORKSPACE_GUID

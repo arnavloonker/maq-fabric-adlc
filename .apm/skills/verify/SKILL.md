@@ -6,7 +6,7 @@ description: Use when independently verifying an implemented Azure DevOps story 
 
 Read [the contract](reference/contract.md) and [the procedure](reference/procedure.md).
 
-Inputs: story ID and exact commit or artifact versions. Load project configuration and relevant domain records. Consult /best-practices for each artifact type reviewed.
+Inputs: story ID and exact commit or artifact versions. Load platform identifiers from `maq-project.toon` and relevant domain records. Consult /best-practices for each artifact type reviewed.
 
 Reuse the approach's approved contract and seam. If missing or changed, propose one and get approval.
 

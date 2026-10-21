@@ -3,7 +3,7 @@
 ## Inputs
 - PR identity: repository and PR ID (or URL). Optional review iteration/version.
 - Optional references: linked story, `/approach` specification, `/verify` evidence. Existing PR work-item relations may supply them.
-- Project configuration (`maq-project.json`): organization, project. Missing configuration blocks only dependent operations.
+- Platform identifiers from `maq-project.toon`: organization and project when ADO access is needed. Missing dependencies block only dependent operations.
 
 ## Outputs
 - Markdown brief with Mermaid only (see `brief-template.md`): what changed and why (when known), before/after topology, direct and downstream impact, intended versus verified outcomes, source links.

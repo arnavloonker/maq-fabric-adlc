@@ -4,7 +4,7 @@
 - Intent: data product, architecture/framework, or new Fabric workload (experiment) question.
 - Optional identities: ADO story ID, repository paths, Fabric workspace/item names, semantic model or report.
 - Allowed exploration scope: environments, workspaces, row/time/cost limits. Default is read-only.
-- Project configuration (`maq-project.json`) only for the parts the exploration uses. Read-only repository brainstorming needs no live-environment credentials.
+- Platform identifiers from `maq-project.toon` only when needed. Read-only repository brainstorming needs no live-environment credentials or platform configuration.
 
 ## Outputs
 - `references\explorations\<id>\findings.md` (see `evidence-template.md`); `<id>` = stable slug + collision-resistant run ID.

@@ -9,7 +9,7 @@
 
 ## Steps
 1. Read the matrix row in `capability-matrix.json`; report `blocked` or `manual-only` with the manual path when automation is not permitted.
-2. Target only DEV workspaces with `allowMutation: true`; apply `fabric.devIsolation` naming.
+2. Execute or mutate only the exact approved, verified workspace from `fabric.devWorkspaceIds` in `maq-project.toon`. Use a branch workspace or prefix shared-DEV artifacts with `<branch_slug>_`.
 3. Preview the change set and get approval for those exact operations.
 4. Author or update items through the companion skill.
 5. Running a pipeline or refreshing a dataflow is a separate execution needing its own approval, with bounded inputs (date window, parameter range).

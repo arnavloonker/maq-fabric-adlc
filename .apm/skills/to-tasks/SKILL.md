@@ -7,7 +7,7 @@ description: Use when decomposing an Azure DevOps story into vertical child task
 Read [the contract](reference/contract.md) and [the procedure](reference/procedure.md).
 
 Inputs: story ID, its approach and seam, project sizing conventions.
-Load project configuration and only relevant domain records. Consult /best-practices for ADO Task guidance.
+Load platform identifiers from `maq-project.toon` and relevant domain records. Consult /best-practices for ADO Task guidance.
 
 Propose thin vertical tracer-bullet slices, each fitting one fresh context window. Never create horizontal medallion-layer tasks.
 

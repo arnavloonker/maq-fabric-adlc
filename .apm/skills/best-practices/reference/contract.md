@@ -17,15 +17,15 @@
 4. Retrieval failure, unchecked required standard, or consequential conflict is not an empty lookup. Report it with the source and affected scope. A consequential conflict pauses the affected operation.
 5. Never state a practice was consulted when it was unavailable.
 6. Do not recurse: this skill and its procedures never invoke `/best-practices`. No bulk loading.
-7. Links supplement, never override, approved project standards (`standards` in `maq-project.json`) or shared safety rules.
+7. Links supplement, never override, repository-local engineering standards or shared safety rules. No project setting selects or overrides package policy.
 8. Consultation needs no onboarding configuration beyond the installed catalog.
 
 ## Maintenance rules
-- Target: the central source repository named by `bestPractices.centralSource` (`organizationUrl`, `project`, `repository`, `targetBranch`, `catalogPath`) in `maq-project.json`, validated by `project-config\maq-project.schema.json`.
+- Target: the installed APM dependency's source repository and pinned revision, resolved from package metadata or the consumer's APM dependency/lock record. The catalog path is always `.apm\skills\best-practices\reference\catalog.md`. Never assume the consumer repository is the central source. Resolve the source repository default branch at runtime; if source resolution is unavailable or ambiguous, return a proposed patch only.
 - Never edit installed package resources, a consumer pin, or a local copy.
 - Preview the exact diff and obtain approval before any branch push or pull request creation. Approval covers one change set and is void if it changes.
 - Never merge, enable autocomplete, or treat a suggestion as an accepted practice. Reviewed central releases distribute accepted changes; consumers stay on their pinned version until they update it.
-- If the source is unreachable or the config is missing, return a patch and say no catalog update was made.
+- If the source is unreachable, unresolved, or ambiguous, return a patch and say no catalog update was made.
 - Accept only real, verified Microsoft Learn or official vendor links; no placeholders.
 
 ## Output

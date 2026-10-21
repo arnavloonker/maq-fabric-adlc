@@ -7,7 +7,7 @@ description: Use when creating or incrementally updating business domain records
 Read [the contract](reference/contract.md) and [the procedure](reference/procedure.md). Start from [the template](reference/domain-template.md).
 
 Inputs: selected domains, or a request to discover candidate business boundaries.
-Load project configuration and only relevant domain records and references.
+Load relevant domain records and references; read `maq-project.toon` only for required platform dependencies.
 Consult /best-practices for applicable artifact types.
 
 Inspect repository sources and existing records. Optionally validate against authorized live metadata; discover available tools and prefer read-only ones.

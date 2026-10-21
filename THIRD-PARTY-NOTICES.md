@@ -1,7 +1,7 @@
 # Third-party notices
 
 ## Original content
-All skills, agents, instructions, schemas, tests, and documentation in this package are original MAQ-authored content. No third-party source code or prose has been copied into it.
+All skills, agents, instructions, configuration templates, tests, and documentation in this package are original MAQ-authored content. No third-party source code or prose has been copied into it.
 
 ## Runtime companions (not bundled)
 The Fabric adapter skills reference other skills and MCP servers by name. These are resolved on the consumer's machine, remain under their own licenses and terms, and are not redistributed here:

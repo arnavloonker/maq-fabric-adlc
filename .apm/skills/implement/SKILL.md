@@ -7,7 +7,7 @@ description: Use when implementing an approved Azure DevOps story or selected ta
 Read [the contract](reference/contract.md), [the procedure](reference/procedure.md), and [DEV isolation](reference/dev-isolation.md).
 
 Inputs: story, optional task IDs, repository, scope.
-Load project configuration, capability-matrix.json, and relevant domain records. Consult /best-practices per artifact type.
+Load platform identifiers from `maq-project.toon`, capability-matrix.json, and relevant domain records. Consult /best-practices per artifact type.
 
 Use a dedicated branch and worktree, never discarding dirty work. Isolate Fabric DEV. Write a failing seam test (Red), implement, pass (Green).
 

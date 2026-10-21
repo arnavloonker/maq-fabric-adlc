@@ -26,10 +26,14 @@ dependencies:
 Then configure the project:
 
 ```powershell
-Copy-Item <package>\project-config\maq-project.example.json maq-project.json
+Copy-Item <package>\project-config\maq-project.example.toon maq-project.toon
 ```
 
-Replace every `REPLACE_*` placeholder, then validate live identities, workspaces, and permissions during onboarding. Keep `maq-project.json` next to the schema; UAT/PROD must stay `allowMutation: false`. Set up MCP servers per [docs\mcp-onboarding.md](docs/mcp-onboarding.md).
+Replace every `REPLACE_*` placeholder and validate live identities, workspaces, and permissions during onboarding. The TOON contains only six ADO connection/placement settings and three Fabric workspace lists. There is no schema or policy configuration: safety, task slicing, TDD, verification, paths, and best-practices behavior live in the skills and instructions. Set up MCP servers per [docs\mcp-onboarding.md](docs/mcp-onboarding.md).
+
+TOON arrays declare their length: when adding a workspace, update `[1]` to the new count and comma-separate the IDs. Keep ADO paths quoted with escaped backslashes, for example `"Project\\Data"`. List only verified workspace IDs; DEV, UAT, and PROD lists must not overlap. UAT/PROD are always read-only. Resolve the repository's default branch at runtime.
+
+For existing consumers, replace the old JSON configuration with the TOON template, carrying over only ADO identifiers/paths and workspace IDs. Remove the old JSON and schema; do not copy workflow or architecture decisions into TOON. Pin the package release in `apm.yml`, not in project configuration.
 
 ## Skills
 
@@ -65,4 +69,4 @@ python tests\contracts\test_fixtures.py
 python tests\contracts\validate_package.py
 ```
 
-Requires `pip install jsonschema`.
+Install the test-only TOON decoder with `python -m pip install -r tests\contracts\requirements.txt`. Consumers do not need a parser or JSON Schema to use the skills.

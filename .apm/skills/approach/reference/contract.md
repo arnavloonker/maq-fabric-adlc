@@ -2,13 +2,13 @@
 
 ## Inputs
 - ADO story ID (required) and mode: `data-model`, `architecture`, or `experiment`.
-- Optional: exploration findings under `references\explorations\<id>\findings.md`, domain records, repository and workspace identities from `maq-project.json`.
+- Optional: exploration findings under `references\explorations\<id>\findings.md`, domain records, repository and workspace identities from `maq-project.toon`.
 - Missing configuration blocks only the dependent operation (for example, no Fabric workspace blocks live validation but not repository-only analysis).
 
 ## Outputs
 1. A technical approach section written into the story's dedicated approach field/section (other story sections are preserved untouched).
 2. A single **Seam** and a draft **Verification Contract** inside that section.
-3. The `ado.readinessTag` (default `build-ready`) present or absent on the story.
+3. The fixed `build-ready` tag present or absent on the story.
 4. A final report: story URL, tag state, resolved decisions, open blockers, unvalidated assumptions.
 
 ## Approach section required content
@@ -35,7 +35,7 @@ Exactly one: the highest-level Fabric boundary at which the outcome is observabl
 ## Readiness tag
 - Applied only when every consequential decision is resolved AND the contract is approved AND no blocking question is open.
 - Removed (with a comment stating why) if any blocker reopens, the baseline is found stale, or the contract is changed after approval.
-- The tag name comes from `ado.readinessTag`; never hard-code another.
+- The tag name is always `build-ready`; never substitute another readiness tag.
 
 ## Safety
 - Read-only by default; only approved, bounded DEV scratch work in experiment mode, including cleanup.

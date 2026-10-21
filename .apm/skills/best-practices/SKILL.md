@@ -10,7 +10,7 @@ Inputs: mode (consult, propose-add, propose-update), artifact type, optional sou
 
 Consult: read only the matching group in [the catalog](reference/catalog.md), then retrieve only relevant linked pages. Apply fetched content, never link titles. Stay silent when an optional entry is absent. Surface retrieval failures and consequential conflicts. Never claim consultation that did not happen. Never invoke this skill recursively or load the whole catalog.
 
-Propose: draft the link change against the central source repository from `bestPractices.centralSource` in `maq-project.json`. Preview it, then publish a pull request only after approval; otherwise return a patch and state nothing was updated.
+Propose: resolve the installed APM dependency source and pinned revision. Draft the link change against that source, preview, and publish a pull request only after approval. If source resolution or access fails, return a patch and state nothing was updated.
 
 Never keep a project-local catalog, edit installed resources, merge, or update consumer pins.
 

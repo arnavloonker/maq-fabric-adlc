@@ -8,7 +8,7 @@ Produce one Markdown file per business domain, `domain\<business-domain>.md`, pl
 - **Domain record:** reviewed knowledge plus clearly labeled provisional observations.
 
 ## Inputs
-Selected domain names, or a request to discover candidate business boundaries. Repository root and `maq-project.json` (only the parts needed: paths, selected domain ownership, standards documents). Optional: authorized live metadata.
+Selected domain names, or a request to discover candidate business boundaries. Git repository root and relevant domain records. Use fixed paths `domain\index.md`, `domain\<business-domain>.md`, and `references\`. Read ownership from the selected domain record, not project configuration. Load `maq-project.toon` only if platform access is needed. Optional: authorized live metadata.
 
 ## Required sections per domain file (in order)
 1. Purpose and owner. Unknown ownership is written as `Unknown`.

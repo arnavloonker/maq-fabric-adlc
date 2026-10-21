@@ -6,7 +6,7 @@ description: Use when testing a Fabric data product, architecture, or new worklo
 
 Read [the contract](reference/contract.md) and [the procedure](reference/procedure.md).
 
-Scope comes from the user's intent plus any story, repository, or Fabric artifact identities. Load project configuration and only relevant domain records and references. Consult /best-practices for each artifact type inspected.
+Scope comes from the user's intent plus story, repository, or Fabric identities. Load `maq-project.toon` only for required platform dependencies and relevant domain records and references. Consult /best-practices for each artifact type inspected.
 
 State hypotheses and what would refute them. Inspect code, then authorized Fabric schemas and bounded query results. Ask unresolved decisions one question at a time, each with a recommended answer. For data asks, profile grain, key uniqueness, joins, and reconciliations.
 

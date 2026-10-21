@@ -9,7 +9,7 @@
 
 ## Steps
 1. Read the matrix row in `capability-matrix.json`; report `blocked` or `manual-only` with the manual path when automation is not permitted.
-2. Writes only to DEV workspaces with `allowMutation: true`, using `fabric.devIsolation` naming.
+2. Mutate only the exact approved, verified workspace from `fabric.devWorkspaceIds` in `maq-project.toon`. Use a branch workspace or prefix shared-DEV artifacts with `<branch_slug>_`.
 3. Preview schema or data changes and get approval for those exact operations.
 4. Execute through the companion skill; bound reads by purpose, rows, and timeout.
 5. For mirroring, report source prerequisites, capacity, and permissions as findings; configuration is a manual DEV action.

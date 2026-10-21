@@ -1,8 +1,8 @@
 # /domain procedure
 
 1. **Scope.** Identify the consumer root and the selected domains. If asked to discover boundaries, propose candidates by business responsibility and ownership, not by system, workspace, or layer, and get the user's selection before writing.
-2. **Configuration.** Read only the needed `maq-project.json` fields (domain paths, ownership, standards documents). Missing configuration blocks only dependent steps.
-3. **Context.** Read `domain\index.md` and the existing record for each selected domain. Load relevant references and linked standards only.
+2. **Dependencies.** Read `maq-project.toon` only if live platform metadata is needed. Use fixed `domain\` and `references\` paths; read ownership from domain records. Missing dependencies block only dependent steps.
+3. **Context.** Read `domain\index.md` and the existing record for each selected domain. Load relevant references and repository-local engineering standards only.
 4. **Best practices.** Consult /best-practices for applicable artifact types. Report a failed lookup; never claim consultation that did not occur.
 5. **Gather evidence (read-only).** Inspect repository sources: code, docs, schemas, definitions. Optionally validate against authorized live metadata or bounded data samples using discovered read-only tools. A read-only query tool is not equivalent to a generic SQL surface that can mutate. Lack of access yields an inconclusive observation, not fabricated support.
 6. **Classify each finding.**

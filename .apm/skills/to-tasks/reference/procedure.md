@@ -1,7 +1,7 @@
 # /to-tasks procedure
 
 ## 1. Scope and context
-1. Resolve the consumer repository root via Git and load relevant `maq-project.json` settings (org, project, task type, iteration, tags). Missing settings block only dependent steps.
+1. Resolve the Git consumer root and load ADO identifiers and placement paths from `maq-project.toon`. Use the native `Task` type and native fields; stop dependent writes if unsupported. Missing dependencies block only dependent steps. Apply fixed vertical tracer-bullet, one-context-window sizing and ask one granularity question at a time with a recommendation until approved.
 2. Load only relevant domain records and references.
 3. Consult /best-practices for the ADO Task artifact group; apply retrieved content. Report a failed lookup; stay quiet on an absent optional entry. Do not recurse.
 
@@ -20,7 +20,7 @@ Draft vertical tracer-bullet slices from the approach, ordered by dependency. Ea
 Ask exactly one question at a time, each with a recommended answer. Typical questions: slice thickness, first tracer bullet, whether to split or merge a slice, dependency order, which seam check per slice. Update the proposal after each answer. Repeat until the engineer explicitly approves the granularity. Do not batch questions or proceed on silence.
 
 ## 6. Preview
-Show a table of tasks to create (parent, type, title, description, tags, iteration/area, assignee if configured), tasks already existing (skipped), and dependency links (source, target, link type). Obtain explicit approval. Re-preview if anything changes.
+Show a table of tasks to create (parent, type, title, description, tags, iteration/area, assignee if explicitly selected), tasks already existing (skipped), and dependency links (source, target, link type). Obtain explicit approval. Re-preview if anything changes.
 
 ## 7. Create
 - Create each missing task with `add_child` (or `create` plus a parent link), one at a time, recording the returned ID against its intent key.

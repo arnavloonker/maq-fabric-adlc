@@ -33,7 +33,7 @@ Any skill can be invoked directly. Missing prerequisites are resolved locally or
 
 **Seam:** The highest-level boundary where a change is tested end-to-end (aiming for one: e.g., gold row counts, key uniqueness, and a DAX measure against a known value). Defined in `/approach` and exercised by `/implement` (TDD) and `/verify`.
 
-**Build-ready marker:** The configured ADO tag (default `build-ready`) applied by `/approach` only when all consequential decisions are resolved and the test seam/verification contract are approved.
+**Build-ready marker:** The fixed `build-ready` ADO tag applied by `/approach` only when all consequential decisions are resolved and the test seam/verification contract are approved.
 
 **Task:** A thin vertical tracer-bullet slice (one entity/metric end-to-end across bronze, silver, gold, semantic model, and report) sized to a single fresh context window under a story, with explicit dependencies.
 
@@ -58,7 +58,7 @@ Any skill can be invoked directly. Missing prerequisites are resolved locally or
 ## 3. Three separate contracts
 
 1. **APM distribution:** `apm.yml`, package primitives, pinned dependencies, and lockfile. APM distributes context and gates installation; it is not the runtime authorization engine. [S1-S5]
-2. **MAQ project configuration:** `maq-project.json`, validated against the accompanying proposed schema. These fields are MAQ's design, not APM fields.
+2. **MAQ platform dependencies:** consumer-root `maq-project.toon`, containing only ADO connection/placement identifiers and Fabric DEV/UAT/PROD workspace ID lists. No schema or workflow policy.
 3. **Runtime execution:** Skill procedures, available MCP/tool schemas, native tool approvals, scoped credentials, and Fabric/ADO permissions.
 
 Written instructions and schema constants express required behavior. They do not prevent a model, user, or external client from bypassing it. Strong guarantees require independently enforced permissions and runtime controls.
@@ -75,8 +75,7 @@ maq-fabric-engineering\
   THIRD-PARTY-NOTICES.md
   upstream-sources.json                 source, revision, license, internal delta
   project-config\
-    maq-project.schema.json
-    maq-project.example.json
+    maq-project.example.toon
   capability-matrix.json
   tests\
     contracts\
@@ -124,7 +123,7 @@ APM documents conventional `references` and `scripts` resource directories and w
 fabric-project\
   apm.yml
   apm.lock.yaml
-  maq-project.json
+  maq-project.toon
   domain\
     index.md
     <business-domain>.md
@@ -157,7 +156,7 @@ Package `reference` files are operating instructions. Consumer `references` file
 
 The practices catalog lives exclusively in the central package. Do not create a consumer `references\best-practices` catalog. A project may record evidence that a practice was considered, but must not turn that record into a competing catalog.
 
-Resolve the consumer repository root through Git and configuration, not the agent's incidental working directory. Resolve bundled support files relative to the installed skill. Reject paths that escape the intended root, including through symlinks/junctions.
+Resolve the consumer repository root through Git, not the agent's incidental working directory. Read `maq-project.toon` there only for required platform dependencies. Resolve bundled support files relative to the installed skill. Reject paths that escape the intended root, including through symlinks/junctions.
 
 ## 5. APM manifest skeletons
 
@@ -196,7 +195,7 @@ scripts: {}
 
 The Git URL and revision are placeholders, not a ready installation. Validate the selected APM release's private Azure Repos authentication and immutable-ref resolution in a scratch consumer. Never embed a PAT in the URL. Commit the generated consumer lockfile.
 
-Do not add MAQ approval settings, ADO field mappings, or Fabric workspace IDs to `apm.yml`. Keep those in `maq-project.json`.
+Do not add project-specific dependencies or approval settings to `apm.yml`. Put only ADO identifiers/placement paths and Fabric workspace IDs in `maq-project.toon`. Approval policy and native ADO field mappings live in skills/instructions; resolve the repository default branch at runtime.
 
 MCP configuration is a deployment concern separate from simply naming a server. Onboard approved servers using the selected APM version's documented MCP format or supported local provisioning. Populate exact identities only after verification; empty lists do not provision ADO or Fabric connectivity.
 
@@ -223,7 +222,7 @@ description: Use when turning an agreed discussion into an Azure DevOps story.
 
 Read [the contract](reference/contract.md) and [the procedure](reference/procedure.md).
 
-Load the project configuration and only relevant domain records and references.
+Load `maq-project.toon` only for required platform identifiers and only relevant domain records and references.
 Consult /best-practices for User Story guidance.
 Extract intent, evidence, acceptance criteria, decisions, and blocking questions.
 Never invent business context or resolve consequential decisions silently.
@@ -246,7 +245,7 @@ This is guided consistency, not strict determinism.
 
 ```text
 Identify scope and consumer root
-  -> validate relevant project configuration
+  -> resolve required platform identifiers from maq-project.toon
   -> load relevant domain/reference context
   -> consult /best-practices for applicable artifact types and linked guidance
   -> discover available tool and supporting-skill schemas
@@ -293,11 +292,11 @@ Do not publish a story, mutate UAT/PROD, infer business intent as fact, or force
 
 Inputs: conversation/selected exploration and optional existing story ID.
 
-Preferred ADO flow: consult `/best-practices` for the configured story artifact; discover the configured type/fields; search related work; read the current story if updating; render and preview the field change set; obtain approval; create or revision-check update; read back.
+Preferred ADO flow: consult `/best-practices` for User Story; verify the native type/fields are supported; search related work; read the current story if updating; render and preview the field change set; obtain approval; create or revision-check update; read back. Stop dependent writes on an unsupported ADO process.
 
 Story sections: outcome; evidenced business context; scope/non-goals; acceptance criteria; decisions; consequential open questions; exploration findings/examples; references; technical approach.
 
-Preserve a current approach section when refreshing other sections. Configure tags such as `platform-architecture` or `data-engineering`; never assume these are universal ADO tags.
+Preserve a current approach section when refreshing other sections. Propose fixed package tags `platform-architecture`, `data-engineering`, and `experiment` when applicable, preserving existing tags. Preview additions; these are not universal ADO tags.
 
 A draft may retain blocking questions. The story must distinguish unresolved questions from requirements. Output includes the story URL and blockers, not a false ready-for-build claim.
 
@@ -317,7 +316,7 @@ Do not automatically treat code behavior as business policy, declare that a docu
 
 Inputs: story ID, consequential decisions, selected mode.
 
-Preferred flow: read the story and relevant discovery findings; consult artifact-specific practices; inspect the current repository and relevant Fabric state; invoke applicable internal adapters; validate the baseline; resolve any open consequential choices or test-seam questions via a grilling loop (strictly one question at a time, always with a recommended answer); specify the chosen change and the draft verification contract anchored to the highest-level seam; preview and approval-gate a revision-checked update to the dedicated story section and the `ado.readinessTag` (`build-ready`) marker.
+Preferred flow: read the story and relevant discovery findings; consult artifact-specific practices; inspect the current repository and relevant Fabric state; invoke applicable internal adapters; validate the baseline; resolve any open consequential choices or test-seam questions via a grilling loop (strictly one question at a time, always with a recommended answer); specify the chosen change and the draft verification contract anchored to the highest-level seam; preview and approval-gate a revision-checked update to the dedicated story section and fixed `build-ready` marker.
 
 The specification identifies repository revision, live observation time and available artifact definition/version; current and proposed behavior; artifact-by-artifact changes; dependencies/interfaces; the agreed test seam and draft verification contract; and migration, compatibility, rollout/rollback where relevant. Aim for a single highest-level Fabric seam (for example: gold row counts, key uniqueness, and a DAX measure against a known value). For each artifact, make create/update/remove/no-change scope explicit. Proposed changes are not reported as already deployed outcomes.
 
@@ -329,7 +328,7 @@ Architecture mode: specify current/proposed boundaries, selected interfaces, com
 
 Experiment mode: specify the selected experiment precisely, including baseline, artifact/configuration changes, bounded DEV execution, time/cost limits, measurements, acceptance of the learning result, and cleanup/rollback. `/brainstorm` may already have run discovery experiments; `/approach` does not need to duplicate them or turn them into production claims.
 
-If inspection contradicts a consequential assumption, elicit a decision one question at a time with a recommended answer. When all consequential choices and the draft verification contract are approved, apply the configured `ado.readinessTag` (`build-ready`); if blocking questions remain or are reopened, omit or remove the tag. Missing access yields an explicit unvalidated assumption or blocker, not invented profiling results.
+If inspection contradicts a consequential assumption, elicit a decision one question at a time with a recommended answer. When all consequential choices and the draft verification contract are approved, apply `build-ready`; if blocking questions remain or are reopened, omit or remove the tag. Missing access yields an explicit unvalidated assumption or blocker, not invented profiling results.
 
 ### /to-tasks
 
@@ -393,9 +392,9 @@ Preferred flow: resolve the signed-in identity and the configured team's current
 
 Use the resolved iteration, not the static `ado.iterationPath` used for new-item placement. If the current scope cannot be resolved uniquely, ask rather than guessing. Explicit filters must be reflected in the report scope. Related work assigned to others or outside the iteration is context, not the user's sprint ownership or a silently expanded personal workload.
 
-Show scope, snapshot time, story/task hierarchy, actual ADO states, explicit configured phase when available, or an evidence-backed phase clearly labeled as inferred. Task counts are not completion percentages. A PR merge is not evidence of deployment, and no observed verification record is not proof that verification never happened.
+Show scope, snapshot time, story/task hierarchy, actual ADO states, and an evidence-backed phase clearly labeled as inferred, or unavailable when evidence is insufficient. Task counts are not completion percentages. A PR merge is not evidence of deployment, and no observed verification record is not proof that verification never happened.
 
-Show chronological relevant events with timestamps and source links within configured history/event limits; label omitted history, access gaps, and unavailable linked data. Do not imply a complete audit trail or causation from a sequence of timestamps. Identify current blockers, waiting/dependency states, unverified claims, and concrete next actions grounded in the retrieved records.
+Show chronological relevant events with timestamps and source links from at most 30 days and 50 events, including linked PR/build events; label omitted history, access gaps, and unavailable linked data. Do not imply a complete audit trail or causation from timestamps. Identify blockers, waiting/dependency states, unverified claims, and grounded next actions.
 
 The default result is read-only conversation output. Save a timestamped snapshot under `references\status\<snapshot-id>.md` only when requested. No silent work-item, PR, or sprint updates; any requested external publication remains previewed and approved.
 
@@ -409,7 +408,7 @@ The catalog contains links grouped by artifact type only, for example Fabric Not
 
 An absent optional entry is unobtrusive; the caller may use official documentation through its normal procedure. Never fabricate a consulted source. Actual retrieval failures and required-standard gaps remain explicit; consequential conflicts pause the affected operation. Central links supplement, not override, approved project standards and shared safety.
 
-Maintenance targets the configured central source repository/branch and catalog path, not an installed dependency. Prepare the link addition/update, preview the change, and obtain approval before Git publication or PR creation. If source access is unavailable, return a proposed patch and explain that no catalog update was made. Do not automatically merge, edit installed resources, update consumer pins, or turn generated suggestions into accepted practices.
+Maintenance resolves the central source and pinned revision from the installed APM dependency metadata. Never assume the consumer repository is the source. Resolve the source default branch at runtime and preserve changes since the pin. Preview and obtain approval before Git publication or PR creation. If resolution or access fails, return a proposed patch and state that no catalog update was made. Never automatically merge, edit installed resources, update consumer pins, or accept generated suggestions as practices.
 
 Reviewed central releases distribute accepted changes. Consumption stays at the pinned package version until explicitly updated. Record package/source revision and retrieval context in relevant run evidence, not as an expanded per-link catalog schema.
 
@@ -495,21 +494,18 @@ Do not commit secrets, raw sensitive query results, tokens, connection strings, 
 
 Approval is tied to a concrete operation set, targets, scope, and relevant version. A changed payload, target, environment, or materially different execution plan invalidates it. Publishing a repository reference, changing ADO content, and executing a DEV job are distinct operations even when approved together.
 
-## 13. MAQ configuration boundary
+## 13. Platform dependency boundary
 
-See `maq-project.schema.json` and `maq-project.example.json` beside this blueprint.
+Copy `project-config\maq-project.example.toon` to the consumer Git root as `maq-project.toon`. There is no schema. Its only settings are:
 
-The example uses placeholders and is not an onboarded project. Structural validation is necessary but insufficient. Onboarding also validates:
+- ADO `organizationUrl`, `project`, `team`, `repository`, `areaPath`, and creation `iterationPath`.
+- Fabric `devWorkspaceIds`, `uatWorkspaceIds`, and `prodWorkspaceIds` arrays.
 
-- Organization, project, repository, branch, work-item types, fields, tags, paths, and applicable ADO process behavior.
-- Configured ADO team, current-iteration resolution, signed-in identity matching, optional phase field, and bounded status history/event limits. A static creation iteration does not determine the current sprint.
-- Exact Fabric workspace identities, environment mapping, credentials/permissions, query limits, and supported adapter/tool bindings.
-- Repository-root-relative paths and protected shared safety settings.
-- Selected domain ownership and standards documents.
-- Capability-matrix and internal release compatibility.
-- Central practices source repository, target branch, and catalog path for maintenance; installed pinned catalog resources for consultation. No local practices registry is introduced.
+The template contains placeholders, not verified access. Resolve exact identities, environment mapping, native ADO types/fields, placement paths, permissions, and supported tool bindings during onboarding. Workspace IDs must be valid GUIDs and lists must not overlap. Reject policy keys and block dependent operations on missing, malformed, placeholder, or ambiguous values. Resolve the repository default branch and team's current iteration at runtime.
 
-The schema encodes shared safety constants and typed settings; it does not execute approvals. Missing configuration blocks only dependent operations. Read-only repository brainstorming need not demand credentials for an unused live environment.
+Safety, query limits (250 returned rows/60 seconds where supported), isolation, paths, readiness/classification tags, task sizing, TDD, verification, status/history, and practices maintenance are fixed in skills/instructions. Domain ownership belongs in domain records; package version belongs in the APM dependency pin. No policy, architecture decisions, or maintenance references belong in TOON.
+
+Read-only repository brainstorming needs no unused live dependency. TOON parsing and contract checks validate the template and fixed policies; instructions guide approval behavior rather than providing a deterministic execution sandbox.
 
 ## 14. Internal fork and release policy
 
@@ -542,7 +538,7 @@ Validate all-workload coverage as a release gate, not an assumed property of imp
 | Scratch cleanup fails | Report remaining artifacts and failure; no false cleanup success |
 | A framework request uses `/approach` | Architecture mode; no fabricated fact/dimension model |
 | `/approach` discovers a duplicated key assumed unique | Interrogate one question at a time with a recommended answer; omit `build-ready` tag until resolved |
-| `/approach` finishes with zero blockers and an agreed seam | Embed draft verification contract in story and apply `ado.readinessTag` (`build-ready`) |
+| `/approach` finishes with zero blockers and an agreed seam | Embed draft verification contract in story and apply `build-ready` |
 | A before/after specification is published | Identify observed baseline and proposed state, not fictional deployment |
 | `/to-tasks` is given a medallion story | Propose vertical end-to-end tracer bullets (never horizontal layer tasks) and quiz granularity one question at a time |
 | Two engineers run `/implement` concurrently | Isolate live Fabric state via pre-created feature workspace or `<branch_slug>_` item/table prefixing in shared DEV |

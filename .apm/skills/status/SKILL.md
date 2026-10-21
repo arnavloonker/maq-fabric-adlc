@@ -6,7 +6,7 @@ description: Use when you need a read-only personal sprint summary of your Azure
 
 Read [the contract](reference/contract.md) and [the procedure](reference/procedure.md).
 
-Scope is the signed-in user, the configured ADO project and team, plus any explicit story, iteration, or person filters. Load only the `ado` and `status` configuration. Consult /best-practices for ADO User Story and Task guidance.
+Scope is the signed-in user, the ADO project/team in `maq-project.toon`, plus explicit story, iteration, or person filters. History is fixed at 30 days and 50 events; no status settings are required. Consult /best-practices for ADO User Story and Task guidance.
 
 Resolve the team's current iteration dynamically with the azure-devops-work iteration tools, never the static creation `iterationPath`. Ask if scope is ambiguous.
 
