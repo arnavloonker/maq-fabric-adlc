@@ -1,0 +1,815 @@
+{
+  "catalogVersion": "fabric-workload-catalog-snapshot-2026-10",
+  "documentationUrl": "https://learn.microsoft.com/fabric/",
+  "statusVocabulary": [
+    "planned",
+    "validated-dev",
+    "blocked",
+    "manual-only",
+    "deprecated"
+  ],
+  "note": "Seed matrix. No row claims validated-dev until DEV evidence exists.",
+  "rows": [
+    {
+      "workload": "Data Engineering",
+      "itemType": "Lakehouse",
+      "operation": "create-and-load",
+      "adapterSkill": "maq-fabric-data-engineering",
+      "adapterVersion": "0.1.0",
+      "toolBindings": [
+        "spark-cli"
+      ],
+      "requiredPermissions": [
+        "Contributor or higher on the DEV workspace"
+      ],
+      "tenantAndCapacityPrerequisites": [
+        "Fabric capacity and tenant settings for this item type; verify during onboarding"
+      ],
+      "supportedEnvironments": [
+        "DEV"
+      ],
+      "sourceControlSupport": "unverified",
+      "branchWorkspaceSupport": "unverified",
+      "sharedWorkspacePrefixFallback": "supported-by-policy",
+      "authoringPath": "companion skill via adapter, approved change set",
+      "validationPath": "bounded read or run-status check at the approved seam",
+      "manualFallback": "Human performs the operation in an approved DEV workspace and records evidence.",
+      "status": "planned",
+      "lastValidatedAt": null,
+      "validationEvidence": [],
+      "knownLimitations": [
+        "No DEV validation evidence yet; not an automated-support claim."
+      ]
+    },
+    {
+      "workload": "Data Engineering",
+      "itemType": "Notebook",
+      "operation": "author-and-run",
+      "adapterSkill": "maq-fabric-data-engineering",
+      "adapterVersion": "0.1.0",
+      "toolBindings": [
+        "spark-cli"
+      ],
+      "requiredPermissions": [
+        "Contributor or higher on the DEV workspace"
+      ],
+      "tenantAndCapacityPrerequisites": [
+        "Fabric capacity and tenant settings for this item type; verify during onboarding"
+      ],
+      "supportedEnvironments": [
+        "DEV"
+      ],
+      "sourceControlSupport": "unverified",
+      "branchWorkspaceSupport": "unverified",
+      "sharedWorkspacePrefixFallback": "supported-by-policy",
+      "authoringPath": "companion skill via adapter, approved change set",
+      "validationPath": "bounded read or run-status check at the approved seam",
+      "manualFallback": "Human performs the operation in an approved DEV workspace and records evidence.",
+      "status": "planned",
+      "lastValidatedAt": null,
+      "validationEvidence": [],
+      "knownLimitations": [
+        "No DEV validation evidence yet; not an automated-support claim."
+      ]
+    },
+    {
+      "workload": "Data Engineering",
+      "itemType": "SparkJobDefinition",
+      "operation": "author-and-run",
+      "adapterSkill": "maq-fabric-data-engineering",
+      "adapterVersion": "0.1.0",
+      "toolBindings": [
+        "spark-cli"
+      ],
+      "requiredPermissions": [
+        "Contributor or higher on the DEV workspace"
+      ],
+      "tenantAndCapacityPrerequisites": [
+        "Fabric capacity and tenant settings for this item type; verify during onboarding"
+      ],
+      "supportedEnvironments": [
+        "DEV"
+      ],
+      "sourceControlSupport": "unverified",
+      "branchWorkspaceSupport": "unverified",
+      "sharedWorkspacePrefixFallback": "supported-by-policy",
+      "authoringPath": "companion skill via adapter, approved change set",
+      "validationPath": "bounded read or run-status check at the approved seam",
+      "manualFallback": "Human performs the operation in an approved DEV workspace and records evidence.",
+      "status": "planned",
+      "lastValidatedAt": null,
+      "validationEvidence": [],
+      "knownLimitations": [
+        "No DEV validation evidence yet; not an automated-support claim."
+      ]
+    },
+    {
+      "workload": "Data Engineering",
+      "itemType": "Environment",
+      "operation": "configure",
+      "adapterSkill": "maq-fabric-data-engineering",
+      "adapterVersion": "0.1.0",
+      "toolBindings": [
+        "spark-cli"
+      ],
+      "requiredPermissions": [
+        "Contributor or higher on the DEV workspace"
+      ],
+      "tenantAndCapacityPrerequisites": [
+        "Fabric capacity and tenant settings for this item type; verify during onboarding"
+      ],
+      "supportedEnvironments": [
+        "DEV"
+      ],
+      "sourceControlSupport": "unverified",
+      "branchWorkspaceSupport": "unverified",
+      "sharedWorkspacePrefixFallback": "supported-by-policy",
+      "authoringPath": "human performs the step in DEV",
+      "validationPath": "bounded read or run-status check at the approved seam",
+      "manualFallback": "Human performs the operation in an approved DEV workspace and records evidence.",
+      "status": "manual-only",
+      "lastValidatedAt": null,
+      "validationEvidence": [],
+      "knownLimitations": [
+        "No DEV validation evidence yet; not an automated-support claim."
+      ]
+    },
+    {
+      "workload": "Data Factory",
+      "itemType": "DataPipeline",
+      "operation": "author-and-run",
+      "adapterSkill": "maq-fabric-data-factory",
+      "adapterVersion": "0.1.0",
+      "toolBindings": [
+        "pipeline-migration"
+      ],
+      "requiredPermissions": [
+        "Contributor or higher on the DEV workspace"
+      ],
+      "tenantAndCapacityPrerequisites": [
+        "Fabric capacity and tenant settings for this item type; verify during onboarding"
+      ],
+      "supportedEnvironments": [
+        "DEV"
+      ],
+      "sourceControlSupport": "unverified",
+      "branchWorkspaceSupport": "unverified",
+      "sharedWorkspacePrefixFallback": "supported-by-policy",
+      "authoringPath": "companion skill via adapter, approved change set",
+      "validationPath": "bounded read or run-status check at the approved seam",
+      "manualFallback": "Human performs the operation in an approved DEV workspace and records evidence.",
+      "status": "planned",
+      "lastValidatedAt": null,
+      "validationEvidence": [],
+      "knownLimitations": [
+        "No DEV validation evidence yet; not an automated-support claim."
+      ]
+    },
+    {
+      "workload": "Data Factory",
+      "itemType": "Dataflow Gen2",
+      "operation": "author-and-refresh",
+      "adapterSkill": "maq-fabric-data-factory",
+      "adapterVersion": "0.1.0",
+      "toolBindings": [
+        "dataflows-cli"
+      ],
+      "requiredPermissions": [
+        "Contributor or higher on the DEV workspace"
+      ],
+      "tenantAndCapacityPrerequisites": [
+        "Fabric capacity and tenant settings for this item type; verify during onboarding"
+      ],
+      "supportedEnvironments": [
+        "DEV"
+      ],
+      "sourceControlSupport": "unverified",
+      "branchWorkspaceSupport": "unverified",
+      "sharedWorkspacePrefixFallback": "supported-by-policy",
+      "authoringPath": "companion skill via adapter, approved change set",
+      "validationPath": "bounded read or run-status check at the approved seam",
+      "manualFallback": "Human performs the operation in an approved DEV workspace and records evidence.",
+      "status": "planned",
+      "lastValidatedAt": null,
+      "validationEvidence": [],
+      "knownLimitations": [
+        "No DEV validation evidence yet; not an automated-support claim."
+      ]
+    },
+    {
+      "workload": "Data Warehouse",
+      "itemType": "Warehouse",
+      "operation": "ddl-dml-and-query",
+      "adapterSkill": "maq-fabric-data-warehouse",
+      "adapterVersion": "0.1.0",
+      "toolBindings": [
+        "sqldw-cli",
+        "fabric-sqlendpoint-execute_query"
+      ],
+      "requiredPermissions": [
+        "Contributor or higher on the DEV workspace"
+      ],
+      "tenantAndCapacityPrerequisites": [
+        "Fabric capacity and tenant settings for this item type; verify during onboarding"
+      ],
+      "supportedEnvironments": [
+        "DEV"
+      ],
+      "sourceControlSupport": "unverified",
+      "branchWorkspaceSupport": "unverified",
+      "sharedWorkspacePrefixFallback": "supported-by-policy",
+      "authoringPath": "companion skill via adapter, approved change set",
+      "validationPath": "bounded read or run-status check at the approved seam",
+      "manualFallback": "Human performs the operation in an approved DEV workspace and records evidence.",
+      "status": "planned",
+      "lastValidatedAt": null,
+      "validationEvidence": [],
+      "knownLimitations": [
+        "No DEV validation evidence yet; not an automated-support claim."
+      ]
+    },
+    {
+      "workload": "Data Warehouse",
+      "itemType": "SQL analytics endpoint",
+      "operation": "bounded-read",
+      "adapterSkill": "maq-fabric-data-warehouse",
+      "adapterVersion": "0.1.0",
+      "toolBindings": [
+        "fabric-sqlendpoint-execute_query"
+      ],
+      "requiredPermissions": [
+        "Contributor or higher on the DEV workspace"
+      ],
+      "tenantAndCapacityPrerequisites": [
+        "Fabric capacity and tenant settings for this item type; verify during onboarding"
+      ],
+      "supportedEnvironments": [
+        "DEV"
+      ],
+      "sourceControlSupport": "unverified",
+      "branchWorkspaceSupport": "unverified",
+      "sharedWorkspacePrefixFallback": "supported-by-policy",
+      "authoringPath": "companion skill via adapter, approved change set",
+      "validationPath": "bounded read or run-status check at the approved seam",
+      "manualFallback": "Human performs the operation in an approved DEV workspace and records evidence.",
+      "status": "planned",
+      "lastValidatedAt": null,
+      "validationEvidence": [],
+      "knownLimitations": [
+        "No DEV validation evidence yet; not an automated-support claim."
+      ]
+    },
+    {
+      "workload": "Databases",
+      "itemType": "SQLDatabase",
+      "operation": "schema-and-query",
+      "adapterSkill": "maq-fabric-databases",
+      "adapterVersion": "0.1.0",
+      "toolBindings": [
+        "sqldb-cli"
+      ],
+      "requiredPermissions": [
+        "Contributor or higher on the DEV workspace"
+      ],
+      "tenantAndCapacityPrerequisites": [
+        "Fabric capacity and tenant settings for this item type; verify during onboarding"
+      ],
+      "supportedEnvironments": [
+        "DEV"
+      ],
+      "sourceControlSupport": "unverified",
+      "branchWorkspaceSupport": "unverified",
+      "sharedWorkspacePrefixFallback": "supported-by-policy",
+      "authoringPath": "companion skill via adapter, approved change set",
+      "validationPath": "bounded read or run-status check at the approved seam",
+      "manualFallback": "Human performs the operation in an approved DEV workspace and records evidence.",
+      "status": "planned",
+      "lastValidatedAt": null,
+      "validationEvidence": [],
+      "knownLimitations": [
+        "No DEV validation evidence yet; not an automated-support claim."
+      ]
+    },
+    {
+      "workload": "Databases",
+      "itemType": "MirroredDatabase",
+      "operation": "configure-and-monitor",
+      "adapterSkill": "maq-fabric-databases",
+      "adapterVersion": "0.1.0",
+      "toolBindings": [],
+      "requiredPermissions": [
+        "Contributor or higher on the DEV workspace"
+      ],
+      "tenantAndCapacityPrerequisites": [
+        "Fabric capacity and tenant settings for this item type; verify during onboarding"
+      ],
+      "supportedEnvironments": [
+        "DEV"
+      ],
+      "sourceControlSupport": "unverified",
+      "branchWorkspaceSupport": "unverified",
+      "sharedWorkspacePrefixFallback": "supported-by-policy",
+      "authoringPath": "human performs the step in DEV",
+      "validationPath": "bounded read or run-status check at the approved seam",
+      "manualFallback": "Human performs the operation in an approved DEV workspace and records evidence.",
+      "status": "manual-only",
+      "lastValidatedAt": null,
+      "validationEvidence": [],
+      "knownLimitations": [
+        "No DEV validation evidence yet; not an automated-support claim."
+      ]
+    },
+    {
+      "workload": "Real-Time Intelligence",
+      "itemType": "Eventstream",
+      "operation": "author-and-start",
+      "adapterSkill": "maq-fabric-real-time-intelligence",
+      "adapterVersion": "0.1.0",
+      "toolBindings": [
+        "eventstream-cli"
+      ],
+      "requiredPermissions": [
+        "Contributor or higher on the DEV workspace"
+      ],
+      "tenantAndCapacityPrerequisites": [
+        "Fabric capacity and tenant settings for this item type; verify during onboarding"
+      ],
+      "supportedEnvironments": [
+        "DEV"
+      ],
+      "sourceControlSupport": "unverified",
+      "branchWorkspaceSupport": "unverified",
+      "sharedWorkspacePrefixFallback": "supported-by-policy",
+      "authoringPath": "companion skill via adapter, approved change set",
+      "validationPath": "bounded read or run-status check at the approved seam",
+      "manualFallback": "Human performs the operation in an approved DEV workspace and records evidence.",
+      "status": "planned",
+      "lastValidatedAt": null,
+      "validationEvidence": [],
+      "knownLimitations": [
+        "No DEV validation evidence yet; not an automated-support claim."
+      ]
+    },
+    {
+      "workload": "Real-Time Intelligence",
+      "itemType": "Eventhouse/KQLDatabase",
+      "operation": "create-and-query",
+      "adapterSkill": "maq-fabric-real-time-intelligence",
+      "adapterVersion": "0.1.0",
+      "toolBindings": [
+        "eventhouse-cli"
+      ],
+      "requiredPermissions": [
+        "Contributor or higher on the DEV workspace"
+      ],
+      "tenantAndCapacityPrerequisites": [
+        "Fabric capacity and tenant settings for this item type; verify during onboarding"
+      ],
+      "supportedEnvironments": [
+        "DEV"
+      ],
+      "sourceControlSupport": "unverified",
+      "branchWorkspaceSupport": "unverified",
+      "sharedWorkspacePrefixFallback": "supported-by-policy",
+      "authoringPath": "companion skill via adapter, approved change set",
+      "validationPath": "bounded read or run-status check at the approved seam",
+      "manualFallback": "Human performs the operation in an approved DEV workspace and records evidence.",
+      "status": "planned",
+      "lastValidatedAt": null,
+      "validationEvidence": [],
+      "knownLimitations": [
+        "No DEV validation evidence yet; not an automated-support claim."
+      ]
+    },
+    {
+      "workload": "Real-Time Intelligence",
+      "itemType": "KQLDashboard",
+      "operation": "author",
+      "adapterSkill": "maq-fabric-real-time-intelligence",
+      "adapterVersion": "0.1.0",
+      "toolBindings": [],
+      "requiredPermissions": [
+        "Contributor or higher on the DEV workspace"
+      ],
+      "tenantAndCapacityPrerequisites": [
+        "Fabric capacity and tenant settings for this item type; verify during onboarding"
+      ],
+      "supportedEnvironments": [
+        "DEV"
+      ],
+      "sourceControlSupport": "unverified",
+      "branchWorkspaceSupport": "unverified",
+      "sharedWorkspacePrefixFallback": "supported-by-policy",
+      "authoringPath": "human performs the step in DEV",
+      "validationPath": "bounded read or run-status check at the approved seam",
+      "manualFallback": "Human performs the operation in an approved DEV workspace and records evidence.",
+      "status": "manual-only",
+      "lastValidatedAt": null,
+      "validationEvidence": [],
+      "knownLimitations": [
+        "No DEV validation evidence yet; not an automated-support claim."
+      ]
+    },
+    {
+      "workload": "Real-Time Intelligence",
+      "itemType": "Activator/Reflex",
+      "operation": "author-rule",
+      "adapterSkill": "maq-fabric-real-time-intelligence",
+      "adapterVersion": "0.1.0",
+      "toolBindings": [
+        "activator-cli"
+      ],
+      "requiredPermissions": [
+        "Contributor or higher on the DEV workspace"
+      ],
+      "tenantAndCapacityPrerequisites": [
+        "Fabric capacity and tenant settings for this item type; verify during onboarding"
+      ],
+      "supportedEnvironments": [
+        "DEV"
+      ],
+      "sourceControlSupport": "unverified",
+      "branchWorkspaceSupport": "unverified",
+      "sharedWorkspacePrefixFallback": "supported-by-policy",
+      "authoringPath": "companion skill via adapter, approved change set",
+      "validationPath": "bounded read or run-status check at the approved seam",
+      "manualFallback": "Human performs the operation in an approved DEV workspace and records evidence.",
+      "status": "planned",
+      "lastValidatedAt": null,
+      "validationEvidence": [],
+      "knownLimitations": [
+        "No DEV validation evidence yet; not an automated-support claim."
+      ]
+    },
+    {
+      "workload": "Data Science",
+      "itemType": "MLExperiment",
+      "operation": "track-runs",
+      "adapterSkill": "maq-fabric-data-science",
+      "adapterVersion": "0.1.0",
+      "toolBindings": [
+        "spark-cli"
+      ],
+      "requiredPermissions": [
+        "Contributor or higher on the DEV workspace"
+      ],
+      "tenantAndCapacityPrerequisites": [
+        "Fabric capacity and tenant settings for this item type; verify during onboarding"
+      ],
+      "supportedEnvironments": [
+        "DEV"
+      ],
+      "sourceControlSupport": "unverified",
+      "branchWorkspaceSupport": "unverified",
+      "sharedWorkspacePrefixFallback": "supported-by-policy",
+      "authoringPath": "human performs the step in DEV",
+      "validationPath": "bounded read or run-status check at the approved seam",
+      "manualFallback": "Human performs the operation in an approved DEV workspace and records evidence.",
+      "status": "manual-only",
+      "lastValidatedAt": null,
+      "validationEvidence": [],
+      "knownLimitations": [
+        "No DEV validation evidence yet; not an automated-support claim."
+      ]
+    },
+    {
+      "workload": "Data Science",
+      "itemType": "MLModel",
+      "operation": "register-and-score",
+      "adapterSkill": "maq-fabric-data-science",
+      "adapterVersion": "0.1.0",
+      "toolBindings": [
+        "spark-cli"
+      ],
+      "requiredPermissions": [
+        "Contributor or higher on the DEV workspace"
+      ],
+      "tenantAndCapacityPrerequisites": [
+        "Fabric capacity and tenant settings for this item type; verify during onboarding"
+      ],
+      "supportedEnvironments": [
+        "DEV"
+      ],
+      "sourceControlSupport": "unverified",
+      "branchWorkspaceSupport": "unverified",
+      "sharedWorkspacePrefixFallback": "supported-by-policy",
+      "authoringPath": "human performs the step in DEV",
+      "validationPath": "bounded read or run-status check at the approved seam",
+      "manualFallback": "Human performs the operation in an approved DEV workspace and records evidence.",
+      "status": "manual-only",
+      "lastValidatedAt": null,
+      "validationEvidence": [],
+      "knownLimitations": [
+        "No DEV validation evidence yet; not an automated-support claim."
+      ]
+    },
+    {
+      "workload": "Power BI",
+      "itemType": "SemanticModel",
+      "operation": "author-and-query",
+      "adapterSkill": "maq-fabric-power-bi",
+      "adapterVersion": "0.1.0",
+      "toolBindings": [
+        "semantic-model-authoring",
+        "FabricIQ-ExecuteQuery"
+      ],
+      "requiredPermissions": [
+        "Contributor or higher on the DEV workspace"
+      ],
+      "tenantAndCapacityPrerequisites": [
+        "Fabric capacity and tenant settings for this item type; verify during onboarding"
+      ],
+      "supportedEnvironments": [
+        "DEV"
+      ],
+      "sourceControlSupport": "unverified",
+      "branchWorkspaceSupport": "unverified",
+      "sharedWorkspacePrefixFallback": "supported-by-policy",
+      "authoringPath": "companion skill via adapter, approved change set",
+      "validationPath": "bounded read or run-status check at the approved seam",
+      "manualFallback": "Human performs the operation in an approved DEV workspace and records evidence.",
+      "status": "planned",
+      "lastValidatedAt": null,
+      "validationEvidence": [],
+      "knownLimitations": [
+        "No DEV validation evidence yet; not an automated-support claim."
+      ]
+    },
+    {
+      "workload": "Power BI",
+      "itemType": "Report",
+      "operation": "author",
+      "adapterSkill": "maq-fabric-power-bi",
+      "adapterVersion": "0.1.0",
+      "toolBindings": [
+        "fabric-report-builder",
+        "FabricIQ-GetReportMetadata"
+      ],
+      "requiredPermissions": [
+        "Contributor or higher on the DEV workspace"
+      ],
+      "tenantAndCapacityPrerequisites": [
+        "Fabric capacity and tenant settings for this item type; verify during onboarding"
+      ],
+      "supportedEnvironments": [
+        "DEV"
+      ],
+      "sourceControlSupport": "unverified",
+      "branchWorkspaceSupport": "unverified",
+      "sharedWorkspacePrefixFallback": "supported-by-policy",
+      "authoringPath": "companion skill via adapter, approved change set",
+      "validationPath": "bounded read or run-status check at the approved seam",
+      "manualFallback": "Human performs the operation in an approved DEV workspace and records evidence.",
+      "status": "planned",
+      "lastValidatedAt": null,
+      "validationEvidence": [],
+      "knownLimitations": [
+        "No DEV validation evidence yet; not an automated-support claim."
+      ]
+    },
+    {
+      "workload": "Power BI",
+      "itemType": "Dashboard",
+      "operation": "author",
+      "adapterSkill": "maq-fabric-power-bi",
+      "adapterVersion": "0.1.0",
+      "toolBindings": [],
+      "requiredPermissions": [
+        "Contributor or higher on the DEV workspace"
+      ],
+      "tenantAndCapacityPrerequisites": [
+        "Fabric capacity and tenant settings for this item type; verify during onboarding"
+      ],
+      "supportedEnvironments": [
+        "DEV"
+      ],
+      "sourceControlSupport": "unverified",
+      "branchWorkspaceSupport": "unverified",
+      "sharedWorkspacePrefixFallback": "supported-by-policy",
+      "authoringPath": "human performs the step in DEV",
+      "validationPath": "bounded read or run-status check at the approved seam",
+      "manualFallback": "Human performs the operation in an approved DEV workspace and records evidence.",
+      "status": "manual-only",
+      "lastValidatedAt": null,
+      "validationEvidence": [],
+      "knownLimitations": [
+        "No DEV validation evidence yet; not an automated-support claim."
+      ]
+    },
+    {
+      "workload": "Fabric IQ",
+      "itemType": "Ontology",
+      "operation": "author-and-inspect",
+      "adapterSkill": "maq-fabric-iq",
+      "adapterVersion": "0.1.0",
+      "toolBindings": [
+        "fabriciq-ontology-cli"
+      ],
+      "requiredPermissions": [
+        "Contributor or higher on the DEV workspace"
+      ],
+      "tenantAndCapacityPrerequisites": [
+        "Fabric capacity and tenant settings for this item type; verify during onboarding"
+      ],
+      "supportedEnvironments": [
+        "DEV"
+      ],
+      "sourceControlSupport": "unverified",
+      "branchWorkspaceSupport": "unverified",
+      "sharedWorkspacePrefixFallback": "supported-by-policy",
+      "authoringPath": "companion skill via adapter, approved change set",
+      "validationPath": "bounded read or run-status check at the approved seam",
+      "manualFallback": "Human performs the operation in an approved DEV workspace and records evidence.",
+      "status": "planned",
+      "lastValidatedAt": null,
+      "validationEvidence": [],
+      "knownLimitations": [
+        "No DEV validation evidence yet; not an automated-support claim."
+      ]
+    },
+    {
+      "workload": "Fabric IQ",
+      "itemType": "Graph/Planning/DataAgent",
+      "operation": "author",
+      "adapterSkill": "maq-fabric-iq",
+      "adapterVersion": "0.1.0",
+      "toolBindings": [],
+      "requiredPermissions": [
+        "Contributor or higher on the DEV workspace"
+      ],
+      "tenantAndCapacityPrerequisites": [
+        "Fabric capacity and tenant settings for this item type; verify during onboarding"
+      ],
+      "supportedEnvironments": [
+        "DEV"
+      ],
+      "sourceControlSupport": "unverified",
+      "branchWorkspaceSupport": "unverified",
+      "sharedWorkspacePrefixFallback": "supported-by-policy",
+      "authoringPath": "human performs the step in DEV",
+      "validationPath": "bounded read or run-status check at the approved seam",
+      "manualFallback": "Human performs the operation in an approved DEV workspace and records evidence.",
+      "status": "manual-only",
+      "lastValidatedAt": null,
+      "validationEvidence": [],
+      "knownLimitations": [
+        "No DEV validation evidence yet; not an automated-support claim."
+      ]
+    },
+    {
+      "workload": "Industry Solutions",
+      "itemType": "Industry solution items",
+      "operation": "configure",
+      "adapterSkill": "maq-fabric-industry-solutions",
+      "adapterVersion": "0.1.0",
+      "toolBindings": [
+        "onelake-catalog-govern-cli"
+      ],
+      "requiredPermissions": [
+        "Contributor or higher on the DEV workspace"
+      ],
+      "tenantAndCapacityPrerequisites": [
+        "Fabric capacity and tenant settings for this item type; verify during onboarding"
+      ],
+      "supportedEnvironments": [
+        "DEV"
+      ],
+      "sourceControlSupport": "unverified",
+      "branchWorkspaceSupport": "unverified",
+      "sharedWorkspacePrefixFallback": "supported-by-policy",
+      "authoringPath": "human performs the step in DEV",
+      "validationPath": "bounded read or run-status check at the approved seam",
+      "manualFallback": "Human performs the operation in an approved DEV workspace and records evidence.",
+      "status": "manual-only",
+      "lastValidatedAt": null,
+      "validationEvidence": [],
+      "knownLimitations": [
+        "No DEV validation evidence yet; not an automated-support claim."
+      ]
+    },
+    {
+      "workload": "Platform",
+      "itemType": "OneLake/Catalog",
+      "operation": "govern-and-search",
+      "adapterSkill": "maq-fabric-platform",
+      "adapterVersion": "0.1.0",
+      "toolBindings": [
+        "onelake-catalog-govern-cli"
+      ],
+      "requiredPermissions": [
+        "Contributor or higher on the DEV workspace"
+      ],
+      "tenantAndCapacityPrerequisites": [
+        "Fabric capacity and tenant settings for this item type; verify during onboarding"
+      ],
+      "supportedEnvironments": [
+        "DEV"
+      ],
+      "sourceControlSupport": "unverified",
+      "branchWorkspaceSupport": "unverified",
+      "sharedWorkspacePrefixFallback": "supported-by-policy",
+      "authoringPath": "companion skill via adapter, approved change set",
+      "validationPath": "bounded read or run-status check at the approved seam",
+      "manualFallback": "Human performs the operation in an approved DEV workspace and records evidence.",
+      "status": "planned",
+      "lastValidatedAt": null,
+      "validationEvidence": [],
+      "knownLimitations": [
+        "No DEV validation evidence yet; not an automated-support claim."
+      ]
+    },
+    {
+      "workload": "Platform",
+      "itemType": "Git integration",
+      "operation": "connect-and-sync",
+      "adapterSkill": "maq-fabric-platform",
+      "adapterVersion": "0.1.0",
+      "toolBindings": [
+        "git-integration-operations-cli"
+      ],
+      "requiredPermissions": [
+        "Contributor or higher on the DEV workspace"
+      ],
+      "tenantAndCapacityPrerequisites": [
+        "Fabric capacity and tenant settings for this item type; verify during onboarding"
+      ],
+      "supportedEnvironments": [
+        "DEV"
+      ],
+      "sourceControlSupport": "unverified",
+      "branchWorkspaceSupport": "unverified",
+      "sharedWorkspacePrefixFallback": "supported-by-policy",
+      "authoringPath": "companion skill via adapter, approved change set",
+      "validationPath": "bounded read or run-status check at the approved seam",
+      "manualFallback": "Human performs the operation in an approved DEV workspace and records evidence.",
+      "status": "planned",
+      "lastValidatedAt": null,
+      "validationEvidence": [],
+      "knownLimitations": [
+        "No DEV validation evidence yet; not an automated-support claim."
+      ]
+    },
+    {
+      "workload": "Platform",
+      "itemType": "VariableLibrary",
+      "operation": "configure",
+      "adapterSkill": "maq-fabric-platform",
+      "adapterVersion": "0.1.0",
+      "toolBindings": [
+        "variable-library-cli"
+      ],
+      "requiredPermissions": [
+        "Contributor or higher on the DEV workspace"
+      ],
+      "tenantAndCapacityPrerequisites": [
+        "Fabric capacity and tenant settings for this item type; verify during onboarding"
+      ],
+      "supportedEnvironments": [
+        "DEV"
+      ],
+      "sourceControlSupport": "unverified",
+      "branchWorkspaceSupport": "unverified",
+      "sharedWorkspacePrefixFallback": "supported-by-policy",
+      "authoringPath": "companion skill via adapter, approved change set",
+      "validationPath": "bounded read or run-status check at the approved seam",
+      "manualFallback": "Human performs the operation in an approved DEV workspace and records evidence.",
+      "status": "planned",
+      "lastValidatedAt": null,
+      "validationEvidence": [],
+      "knownLimitations": [
+        "No DEV validation evidence yet; not an automated-support claim."
+      ]
+    },
+    {
+      "workload": "Platform",
+      "itemType": "Deployment pipeline",
+      "operation": "inspect-and-plan",
+      "adapterSkill": "maq-fabric-platform",
+      "adapterVersion": "0.1.0",
+      "toolBindings": [
+        "deployment-pipelines-authoring-cli"
+      ],
+      "requiredPermissions": [
+        "Contributor or higher on the DEV workspace"
+      ],
+      "tenantAndCapacityPrerequisites": [
+        "Fabric capacity and tenant settings for this item type; verify during onboarding"
+      ],
+      "supportedEnvironments": [
+        "DEV"
+      ],
+      "sourceControlSupport": "unverified",
+      "branchWorkspaceSupport": "unverified",
+      "sharedWorkspacePrefixFallback": "supported-by-policy",
+      "authoringPath": "human performs the step in DEV",
+      "validationPath": "bounded read or run-status check at the approved seam",
+      "manualFallback": "Human performs the operation in an approved DEV workspace and records evidence.",
+      "status": "manual-only",
+      "lastValidatedAt": null,
+      "validationEvidence": [],
+      "knownLimitations": [
+        "No DEV validation evidence yet; not an automated-support claim."
+      ]
+    }
+  ]
+}

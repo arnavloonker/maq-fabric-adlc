@@ -1,0 +1,17 @@
+---
+name: best-practices
+description: Use when another skill or a user needs guidance links for a Fabric or Azure DevOps artifact type, or wants to propose a catalog addition or update.
+---
+# Best practices
+
+Read [the contract](reference/contract.md) and [the procedure](reference/procedure.md).
+
+Inputs: mode (consult, propose-add, propose-update), artifact type, optional source link.
+
+Consult: read only the matching group in [the catalog](reference/catalog.md), then retrieve only relevant linked pages. Apply fetched content, never link titles. Stay silent when an optional entry is absent. Surface retrieval failures and consequential conflicts. Never claim consultation that did not happen. Never invoke this skill recursively or load the whole catalog.
+
+Propose: draft the link change against the central source repository from `bestPractices.centralSource` in `maq-project.json`. Preview it, then publish a pull request only after approval; otherwise return a patch and state nothing was updated.
+
+Never keep a project-local catalog, edit installed resources, merge, or update consumer pins.
+
+Report the entries consulted, failures, conflicts, or the proposal link or patch.

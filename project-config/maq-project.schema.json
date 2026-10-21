@@ -1,0 +1,236 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:maq:fabric-engineering:project-config:1",
+  "title": "Proposed MAQ Fabric project configuration",
+  "description": "MAQ design, not an APM schema. Validate live identities, permissions, capabilities, and paths during onboarding.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "packageVersion", "ado", "fabric", "context", "standards", "policy", "verification", "status", "bestPractices"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "schemaVersion": { "const": 1 },
+    "packageVersion": { "$ref": "#/$defs/nonempty" },
+    "ado": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["organizationUrl", "project", "team", "repository", "targetBranch", "storyType", "taskType", "areaPath", "iterationPath", "readinessTag", "fields", "classificationTags", "taskScoping"],
+      "properties": {
+        "organizationUrl": { "type": "string", "pattern": "^https://", "format": "uri" },
+        "project": { "$ref": "#/$defs/nonempty" },
+        "team": { "$ref": "#/$defs/nonempty" },
+        "repository": { "$ref": "#/$defs/nonempty" },
+        "targetBranch": { "$ref": "#/$defs/nonempty" },
+        "storyType": { "$ref": "#/$defs/nonempty" },
+        "taskType": { "$ref": "#/$defs/nonempty" },
+        "areaPath": { "$ref": "#/$defs/nonempty" },
+        "iterationPath": {
+          "description": "Placement for new work items, not the current iteration used by status.",
+          "$ref": "#/$defs/nonempty"
+        },
+        "readinessTag": {
+          "description": "ADO tag applied by /approach when consequential decisions are resolved and the seam verification contract is approved.",
+          "$ref": "#/$defs/nonempty"
+        },
+        "fields": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["title", "description", "acceptanceCriteria", "tags"],
+          "properties": {
+            "title": { "$ref": "#/$defs/nonempty" },
+            "description": { "$ref": "#/$defs/nonempty" },
+            "acceptanceCriteria": { "$ref": "#/$defs/nonempty" },
+            "tags": { "$ref": "#/$defs/nonempty" }
+          }
+        },
+        "classificationTags": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["architecture", "dataEngineering", "experiment"],
+          "properties": {
+            "architecture": { "$ref": "#/$defs/stringList" },
+            "dataEngineering": { "$ref": "#/$defs/stringList" },
+            "experiment": { "$ref": "#/$defs/stringList" }
+          }
+        },
+        "taskScoping": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["basis", "slicingRule", "granularityLoop", "conventionsFile"],
+          "properties": {
+            "basis": { "const": "vertical-tracer-bullet" },
+            "slicingRule": { "const": "single-context-window-end-to-end" },
+            "granularityLoop": { "const": "quiz-one-at-a-time-until-approved" },
+            "conventionsFile": { "$ref": "#/$defs/nonempty" }
+          }
+        }
+      }
+    },
+    "fabric": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["coverage", "devIsolation", "tdd", "environments", "queryLimits"],
+      "properties": {
+        "coverage": { "const": "all-workloads-versioned-matrix" },
+        "devIsolation": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["strategy", "prefixTemplate"],
+          "properties": {
+            "strategy": { "const": "branch-workspace-or-shared-dev-prefix" },
+            "prefixTemplate": { "$ref": "#/$defs/nonempty" }
+          }
+        },
+        "tdd": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["anchor", "executionStyle"],
+          "properties": {
+            "anchor": { "const": "approach-seam" },
+            "executionStyle": { "const": "minimal-fast-query-or-parameter-window" }
+          }
+        },
+        "environments": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["name", "workspaceIds", "allowMutation"],
+            "properties": {
+              "name": { "enum": ["DEV", "UAT", "PROD"] },
+              "workspaceIds": { "$ref": "#/$defs/stringList" },
+              "allowMutation": { "type": "boolean" }
+            },
+            "allOf": [
+              {
+                "if": {
+                  "properties": { "name": { "enum": ["UAT", "PROD"] } },
+                  "required": ["name"]
+                },
+                "then": { "properties": { "allowMutation": { "const": false } } }
+              }
+            ]
+          }
+        },
+        "queryLimits": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["maxReturnedRows", "timeoutSeconds", "requirePurpose", "persistSensitiveRows"],
+          "properties": {
+            "maxReturnedRows": { "type": "integer", "minimum": 1 },
+            "timeoutSeconds": { "type": "integer", "minimum": 1 },
+            "requirePurpose": { "const": true },
+            "persistSensitiveRows": { "const": false }
+          }
+        }
+      }
+    },
+    "context": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["referencesRoot", "domainRoot", "scratchRoot", "approachSection", "domainOwners"],
+      "properties": {
+        "referencesRoot": { "const": "references" },
+        "domainRoot": { "const": "domain" },
+        "scratchRoot": { "const": ".agent-tmp" },
+        "approachSection": { "$ref": "#/$defs/nonempty" },
+        "domainOwners": {
+          "type": "object",
+          "description": "Business-domain slug to a non-secret ownership reference; an empty map means owners remain unresolved.",
+          "additionalProperties": { "$ref": "#/$defs/nonempty" }
+        }
+      }
+    },
+    "standards": { "$ref": "#/$defs/stringList" },
+    "policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["externalWrites", "existingSharedFiles", "newReferences", "workItemClosure", "automaticMerge", "automaticDeployment", "toolFlow"],
+      "properties": {
+        "externalWrites": { "const": "preview-and-approve-change-set" },
+        "existingSharedFiles": { "const": "preview-before-edit" },
+        "newReferences": { "const": "allow-nondestructive-create" },
+        "workItemClosure": { "const": "human-only" },
+        "automaticMerge": { "const": false },
+        "automaticDeployment": { "const": false },
+        "toolFlow": { "const": "preferred-order-safe-substitution" }
+      }
+    },
+    "verification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["contractOrigin", "seamTarget", "reviewer", "publication", "verdicts"],
+      "properties": {
+        "contractOrigin": { "const": "drafted-in-approach-reused-in-verify" },
+        "seamTarget": { "const": "single-highest-level-reconciliation-and-measure" },
+        "reviewer": { "const": "separate-context-required" },
+        "publication": { "const": "approved-story-comment" },
+        "verdicts": {
+          "const": ["passed", "failed", "blocked", "inconclusive"]
+        }
+      }
+    },
+    "status": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["defaultScope", "defaultIteration", "relatedContext", "phaseField", "allowLabeledPhaseInference", "history", "completionPercentage", "persistence"],
+      "properties": {
+        "defaultScope": { "const": "signed-in-user" },
+        "defaultIteration": { "const": "configured-team-current" },
+        "relatedContext": { "const": "labeled-relevant-relations" },
+        "phaseField": {
+          "description": "Optional verified ADO field reference name; null means no explicit phase field is configured.",
+          "anyOf": [{ "type": "null" }, { "$ref": "#/$defs/nonempty" }]
+        },
+        "allowLabeledPhaseInference": { "type": "boolean" },
+        "history": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["lookbackDays", "maxEvents", "includeLinkedPrBuildEvents"],
+          "properties": {
+            "lookbackDays": { "type": "integer", "minimum": 1 },
+            "maxEvents": { "type": "integer", "minimum": 1 },
+            "includeLinkedPrBuildEvents": { "type": "boolean" }
+          }
+        },
+        "completionPercentage": { "const": false },
+        "persistence": { "const": "save-only-when-requested" }
+      }
+    },
+    "bestPractices": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["storage", "entryFormat", "automaticScopedConsultation", "missingOptionalEntry", "maintenance", "automaticConsumerUpdate", "centralSource"],
+      "properties": {
+        "storage": { "const": "central-package-only" },
+        "entryFormat": { "const": "links-grouped-by-artifact-type" },
+        "automaticScopedConsultation": { "const": true },
+        "missingOptionalEntry": { "const": "continue-without-announcement" },
+        "maintenance": { "const": "approved-central-pr-or-proposed-patch" },
+        "automaticConsumerUpdate": { "const": false },
+        "centralSource": {
+          "type": "object",
+          "description": "Editable central source identity for maintenance. Consultation uses the installed pinned package, not the branch tip.",
+          "additionalProperties": false,
+          "required": ["organizationUrl", "project", "repository", "targetBranch", "catalogPath"],
+          "properties": {
+            "organizationUrl": { "type": "string", "pattern": "^https://", "format": "uri" },
+            "project": { "$ref": "#/$defs/nonempty" },
+            "repository": { "$ref": "#/$defs/nonempty" },
+            "targetBranch": { "$ref": "#/$defs/nonempty" },
+            "catalogPath": { "$ref": "#/$defs/nonempty" }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "nonempty": { "type": "string", "minLength": 1 },
+    "stringList": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/nonempty" }
+    }
+  }
+}

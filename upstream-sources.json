@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "packageVersion": "0.1.0",
+  "statement": "All package content is original MAQ-authored work. Referenced skills and MCP servers are runtime companions resolved on the consumer machine; no upstream prose, code, or assets are copied into this package.",
+  "forks": [],
+  "runtimeCompanions": [
+    { "name": "spark-cli", "kind": "skill", "usage": "referenced by maq-fabric-data-engineering and maq-fabric-data-science", "copied": false },
+    { "name": "sqldw-cli", "kind": "skill", "usage": "referenced by maq-fabric-data-warehouse", "copied": false },
+    { "name": "sqldb-cli", "kind": "skill", "usage": "referenced by maq-fabric-databases", "copied": false },
+    { "name": "pipeline-migration", "kind": "skill", "usage": "referenced by maq-fabric-data-factory", "copied": false },
+    { "name": "dataflows-cli", "kind": "skill", "usage": "referenced by maq-fabric-data-factory", "copied": false },
+    { "name": "eventhouse-cli", "kind": "skill", "usage": "referenced by maq-fabric-real-time-intelligence", "copied": false },
+    { "name": "eventstream-cli", "kind": "skill", "usage": "referenced by maq-fabric-real-time-intelligence", "copied": false },
+    { "name": "activator-cli", "kind": "skill", "usage": "referenced by maq-fabric-real-time-intelligence", "copied": false },
+    { "name": "semantic-model-authoring", "kind": "skill", "usage": "referenced by maq-fabric-power-bi", "copied": false },
+    { "name": "fabric-report-builder", "kind": "skill", "usage": "referenced by maq-fabric-power-bi", "copied": false },
+    { "name": "fabriciq-ontology-cli", "kind": "skill", "usage": "referenced by maq-fabric-iq", "copied": false },
+    { "name": "git-integration-operations-cli", "kind": "skill", "usage": "referenced by maq-fabric-platform", "copied": false },
+    { "name": "deployment-pipelines-authoring-cli", "kind": "skill", "usage": "referenced by maq-fabric-platform", "copied": false },
+    { "name": "variable-library-cli", "kind": "skill", "usage": "referenced by maq-fabric-platform", "copied": false },
+    { "name": "onelake-catalog-govern-cli", "kind": "skill", "usage": "referenced by maq-fabric-platform and maq-fabric-industry-solutions", "copied": false },
+    { "name": "@azure-devops/mcp", "kind": "mcp-server", "usage": "ADO reads and approved writes", "copied": false },
+    { "name": "FabricIQ", "kind": "mcp-server", "usage": "semantic model and report discovery and DAX", "copied": false },
+    { "name": "fabric-sqlendpoint", "kind": "mcp-server", "usage": "bounded SQL endpoint reads", "copied": false }
+  ],
+  "importPolicy": "Before importing any upstream content, record repository/path, exact revision, license, attribution, internal changes, owner, and compatibility in forks[] and THIRD-PARTY-NOTICES.md."
+}

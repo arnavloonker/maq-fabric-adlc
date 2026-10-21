@@ -1,0 +1,10 @@
+name: maq-fabric-engineering
+version: 0.1.0
+description: MAQ workflow and Fabric engineering expertise
+targets:
+  - copilot
+includes: auto
+dependencies:
+  apm: []
+  mcp: []
+scripts: {}
