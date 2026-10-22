@@ -27,6 +27,7 @@ Add to your Copilot CLI MCP configuration (for example `~/.copilot/mcp-config.js
 - Sign in through the browser prompt on first use with the account that has project access.
 - Verify: list projects, then read one work item in the configured project.
 - Writes remain subject to preview, approval, and revision checks in the safety rules.
+- Azure DevOps workflow skills are resolved directly from the `microsoft/azure-devops-skills` APM dependency; rediscover the available skill/tool schemas instead of assuming server-version-specific arguments.
 
 ## Fabric and FabricIQ MCP
 
@@ -51,4 +52,4 @@ Used for semantic model and report discovery, bounded DAX (`FabricIQ-*`), and bo
 
 - The signed-in identity has access to the DEV workspaces in `fabric.devWorkspaceIds` in `maq-project.toon` only as far as policy allows. Validate workspace identity and environment; lists must not overlap.
 - The execution surface honors fixed limits: stated purpose, at most 250 returned rows, and a 60-second timeout/budget where supported. If timeout enforcement is unavailable, report the limitation and narrow the scan.
-- FabricIQ discovery covers semantic models and reports only; other workloads use the `maq-fabric-*` adapters and their companion skills.
+- FabricIQ discovery covers semantic models and reports only. For other workloads, use the directly installed Fabric companion skill identified in `capability-matrix.json`; if no supported skill/tool binding exists, report the operation as `blocked` or `manual-only` rather than improvising.

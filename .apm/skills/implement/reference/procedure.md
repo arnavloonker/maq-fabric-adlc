@@ -17,8 +17,8 @@ Follow [DEV isolation](dev-isolation.md). Record the mode chosen and why.
 ## 4. /best-practices consultation
 For each artifact type to be authored or changed (for example notebook, pipeline, warehouse SQL, semantic model, report, Eventstream/KQL, PR, ADO progress comment), consult /best-practices on demand, loading only applicable linked pages. Apply them. Report a failed lookup or unchecked required standard; stay quiet on an absent optional entry. Do not recurse. Catalog guidance never overrides approved requirements or safety rules.
 
-## 5. Discover tools and adapters
-Read MCP/tool and supporting-skill schemas; do not guess argument shapes. Match each artifact operation to a matrix row (workload, itemType, operation) and its adapter. Substitute a tool only with equivalent semantics, scope, permissions, approval boundary, and evidence; record it.
+## 5. Discover tools and direct Fabric skills
+Read MCP/tool and installed-skill schemas; do not guess argument shapes. Match each artifact operation to a matrix row (workload, itemType, operation), then invoke the listed runtime skills and tool bindings directly. If no supported binding is listed, report the operation as blocked/manual-only instead of improvising. Substitute a tool only with equivalent semantics, scope, permissions, approval boundary, and evidence; record it.
 
 ## 6. Plan and approve
 Preview the change set: files, Fabric items/operations with target workspace or prefix, DEV executions, seam tests, and expected publication. Obtain explicit approval for DEV authoring/execution. Re-preview if anything changes. Unsupported operations are listed as blocked/manual-only.
@@ -26,10 +26,10 @@ Preview the change set: files, Fabric items/operations with target workspace or 
 ## 7. Fast-feedback Red-Green TDD loop (per slice, anchored to the seam)
 1. Write the smallest fast executable seam test first. Data asks: partition filters, sample keys, or bounded windows; enforce query timeouts/budgets where the surface supports them (a row limit alone does not bound scan cost); prefer schema/aggregate evidence over raw rows. Architectural changes: narrow parameter windows.
 2. Run it and confirm Red for the expected reason. Capture the command and result.
-3. Implement the slice through the adapter; write documentation with it.
+3. Implement the slice through the listed direct Fabric skill/tool; write documentation with it.
 4. Re-run until Green. Then run relevant broader checks. Capture evidence without raw sensitive rows.
 5. Medallion layers apply only to relevant data-product work; slices stay vertical.
-A test that cannot be run (blocked adapter) is reported as untested, not passed.
+A test that cannot be run because its direct skill/tool is unavailable is reported as untested, not passed.
 
 ## 8. Publish (each step separately approved)
 1. Show the diff summary and proposed commit message; commit after approval, only the approved files. Never commit secrets or scratch output.

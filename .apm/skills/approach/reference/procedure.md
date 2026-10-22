@@ -4,7 +4,7 @@
 2. **Read the story.** Use the discovered ADO work item tool (preferred: `azure-devops-wit_work_item` `get`, `list_comments`). Record the `System.Rev` read. Note the existing approach section, tags, and open questions.
 3. **Context.** Load relevant exploration findings and domain records only. Reuse prior evidence; revalidate if stale, do not redo discovery to satisfy sequence.
 4. **Best practices.** Consult /best-practices for each artifact type inspected or specified; read only the applicable links. Stay quiet about absent optional entries; report failed retrieval or consequential conflicts.
-5. **Baseline validation.** Inspect the repository (record commit) and live Fabric artifacts through authorized, bounded reads. Prefer schema, definitions, and aggregates over raw rows; use partition filters or sample keys. Invoke the matching internal `maq-*` Fabric adapter per the capability matrix; if unsupported, report `blocked` or `manual-only`.
+5. **Baseline validation.** Inspect the repository (record commit) and live Fabric artifacts through authorized, bounded reads. Prefer schema, definitions, and aggregates over raw rows; use partition filters or sample keys. Invoke the direct Fabric skills/tools listed for the operation in the capability matrix; if no supported binding exists, report `blocked` or `manual-only`.
 6. **Grilling loop.** For each unresolved consequential decision or contradiction (duplicate keys, grain mismatch, Spark vs Warehouse, missing seam):
    - Ask exactly ONE question.
    - Include the evidence and a recommended answer.

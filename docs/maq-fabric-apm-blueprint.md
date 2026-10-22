@@ -45,9 +45,9 @@ Any skill can be invoked directly. Missing prerequisites are resolved locally or
 
 **Verification contract:** Engineer-approved criteria, scope, target version/environment, checks, and evidence expectations for one story.
 
-**Adapter:** An internally maintained supporting skill and procedure for specific Fabric item types and operations.
+**Fabric runtime skill:** A skill provided by the external `microsoft/fabric-skills` APM dependency and invoked directly by a workflow skill.
 
-**Capability:** A documented operation whose support status depends on the adapter, available tools, permissions, environment, and validation evidence.
+**Capability:** A documented operation whose support status depends on its direct runtime skills, available tools, permissions, environment, and validation evidence.
 
 **Change brief:** An explanation of an identified PR review change set, separating observed changes, inferred impacts, intended outcomes, and verified results.
 
@@ -112,10 +112,9 @@ maq-fabric-engineering\
           contract.md
           procedure.md
           catalog.md                   links grouped by artifact type only
-      maq-<fabric-specialist>\          maintained internal supporting skills
 ```
 
-Each of the other workflow directories has the same `SKILL.md` and `reference` pattern. A `script` directory is optional; do not create empty scaffolding for its own sake. Internally forked supporting skills must also meet the word limit.
+Each workflow directory has the same `SKILL.md` and `reference` pattern. A `script` directory is optional; do not create empty scaffolding for its own sake. Fabric and Azure DevOps skills are external APM dependencies, not copied into this package.
 
 APM documents conventional `references` and `scripts` resource directories and whole-skill-folder deployment. This design uses the requested singular `reference` and `script` names with explicit relative links. Treat preservation of those names as a package compatibility acceptance check, not a newly invented APM feature. [S3-S4]
 
@@ -170,12 +169,14 @@ targets:
   - copilot
 includes: auto
 dependencies:
-  apm: []
+  apm:
+    - microsoft/fabric-skills
+    - microsoft/azure-devops-skills
   mcp: []
 scripts: {}
 ```
 
-Empty dependency lists are intentional here: internal forks ship as local primitives. No unverified upstream coordinates or MCP registry identifiers are invented. `includes: auto` is documented consent to include local package content, not a guarantee that only desirable files ship. Inspect the produced bundle before release; never keep customer artifacts or secrets in the producer tree.
+The official Fabric and Azure DevOps skill collections are resolved as external APM dependencies; their source files are not copied into this package. `includes: auto` is documented consent to include local package content, not a guarantee that only desirable files ship. Inspect the produced bundle before release; never keep customer artifacts or secrets in the producer tree.
 
 Consumer skeleton:
 
@@ -237,7 +238,7 @@ Read back the result and report its URL and unresolved blockers. Never close it.
 
 Shortness cannot be achieved by hiding essential safety behavior in an unreferenced file. Avoid a giant shared manual that every invocation must load. Load the entry point, the applicable procedure, and only the branch-specific supporting material.
 
-The ten workflow names are user-facing entry points; adapter names are supporting capabilities. `/best-practices` also supports automatic scoped consultation by the other skills. Confirm invocation and name-collision behavior in the installed Copilot CLI version. APM packaging alone is not proof of slash-command discovery or human-only invocation. [S3]
+The ten workflow names are user-facing entry points; Fabric skills are invoked directly from the external APM dependency as needed. `/best-practices` also supports automatic scoped consultation by the other skills. Confirm invocation and name-collision behavior in the installed Copilot CLI version. APM packaging alone is not proof of slash-command discovery or human-only invocation. [S3]
 
 ## 7. Shared execution procedure
 
@@ -248,7 +249,7 @@ Identify scope and consumer root
   -> resolve required platform identifiers from maq-project.toon
   -> load relevant domain/reference context
   -> consult /best-practices for applicable artifact types and linked guidance
-  -> discover available tool and supporting-skill schemas
+  -> discover available tool schemas and directly installed Fabric skills
   -> read current external state
   -> choose documented procedure branch
   -> prepare changes or verification contract
@@ -276,7 +277,7 @@ Preserve concurrent changes. For ADO updates use the read revision where the dis
 
 Inputs: intent, relevant repository/story/artifact identities, allowed exploration scope.
 
-Preferred flow: state the hypothesis and what would support or refute it; inspect code and domain index; consult artifact-specific practices and modeling expertise when relevant; resolve authorized Fabric artifacts; inspect schemas/definitions and bounded query results through appropriate adapters; elicit unresolved decisions from the user via a grilling loop (strictly one question at a time, always with a recommended answer); test alternatives and success criteria; record findings.
+Preferred flow: state the hypothesis and what would support or refute it; inspect code and domain index; consult artifact-specific practices and modeling expertise when relevant; resolve authorized Fabric artifacts; inspect schemas/definitions and bounded query results through directly installed Fabric skills/tools; elicit unresolved decisions from the user via a grilling loop (strictly one question at a time, always with a recommended answer); test alternatives and success criteria; record findings.
 
 Branches: architecture/framework feasibility, experiment/new workload, or data-product semantics and modeling feasibility. For a data ask, profile candidate grain, key uniqueness, joins, and sample reconciliations to establish whether the proposed model answers the requirement without distorting the data. This is exploratory modeling, not an implicit final implementation contract.
 
@@ -316,7 +317,7 @@ Do not automatically treat code behavior as business policy, declare that a docu
 
 Inputs: story ID, consequential decisions, selected mode.
 
-Preferred flow: read the story and relevant discovery findings; consult artifact-specific practices; inspect the current repository and relevant Fabric state; invoke applicable internal adapters; validate the baseline; resolve any open consequential choices or test-seam questions via a grilling loop (strictly one question at a time, always with a recommended answer); specify the chosen change and the draft verification contract anchored to the highest-level seam; preview and approval-gate a revision-checked update to the dedicated story section and fixed `build-ready` marker.
+Preferred flow: read the story and relevant discovery findings; consult artifact-specific practices; inspect the current repository and relevant Fabric state through directly installed Fabric skills/tools; validate the baseline; resolve any open consequential choices or test-seam questions via a grilling loop (strictly one question at a time, always with a recommended answer); specify the chosen change and the draft verification contract anchored to the highest-level seam; preview and approval-gate a revision-checked update to the dedicated story section and fixed `build-ready` marker.
 
 The specification identifies repository revision, live observation time and available artifact definition/version; current and proposed behavior; artifact-by-artifact changes; dependencies/interfaces; the agreed test seam and draft verification contract; and migration, compatibility, rollout/rollback where relevant. Aim for a single highest-level Fabric seam (for example: gold row counts, key uniqueness, and a DAX measure against a known value). For each artifact, make create/update/remove/no-change scope explicit. Proposed changes are not reported as already deployed outcomes.
 
@@ -344,11 +345,11 @@ Task dependency direction and relation types must come from discovered ADO proce
 
 Inputs: story and optional selected task IDs; authorized repository; implementation scope.
 
-Preferred flow: read current story/tasks, build-ready status, agreed seam, and blockers; inspect Git status/worktrees; create a dedicated branch/worktree for the chosen scope without discarding existing work; isolate live Fabric DEV state using a mapped feature-branch workspace when pre-created and supported by the capability matrix, or fall back to the shared DEV workspace with deterministic item/table prefixing (`<branch_slug>_`); consult `/best-practices` for each applicable artifact type, such as notebook and PR; execute a fast-feedback TDD loop anchored to the approach seam; invoke applicable adapters; implement code and documentation; run relevant checks.
+Preferred flow: read current story/tasks, build-ready status, agreed seam, and blockers; inspect Git status/worktrees; create a dedicated branch/worktree for the chosen scope without discarding existing work; isolate live Fabric DEV state using a mapped feature-branch workspace when pre-created and supported by the capability matrix, or fall back to the shared DEV workspace with deterministic item/table prefixing (`<branch_slug>_`); consult `/best-practices` for each applicable artifact type, such as notebook and PR; execute a fast-feedback TDD loop anchored to the approach seam; invoke applicable Fabric skills directly; implement code and documentation; run relevant checks.
 
 Fast-feedback TDD loop: before writing implementation code for a slice, write a minimal, fast-running executable seam test (for data asks, optimize the test query via filtered partitions, sample keys, or bounded windows; for architectural changes, test narrow parameter windows), confirm it fails (Red), implement the slice, and re-run until it passes (Green).
 
-Approved DEV authoring/execution is allowed when required by the selected adapter and explicit change set. That is not authority to promote/deploy a release. Unsupported native item operations remain blocked with manual instructions.
+Approved DEV authoring/execution is allowed when required by the selected direct Fabric skill and explicit change set. That is not authority to promote/deploy a release. Unsupported native item operations remain blocked with manual instructions.
 
 Preview external updates and Git publication, including commits/pushes/PR creation as applicable. Publish only the approved change set. Link PRs/commits to work without requesting state closure.
 
@@ -374,7 +375,7 @@ Preview and approval-gate an ADO story comment containing the test-case-style ev
 
 Inputs: PR identity, optional review iteration/version, and optional story/approach/verification references.
 
-Preferred flow: read PR metadata and the native review diff at identified source/target baselines; consult practices for the PR and affected artifact types; inspect changed definitions/code and evidenced dependencies through relevant adapters; read related ADO intent/evidence when available; produce the brief.
+Preferred flow: read PR metadata and the native review diff at identified source/target baselines; consult practices for the PR and affected artifact types; inspect changed definitions/code and evidenced dependencies through relevant Fabric skills/tools in read-only scope; read related ADO intent/evidence when available; produce the brief.
 
 For completed PRs, use the recorded review/merge context rather than comparing current branch tips that may have moved. If the correct baseline or diff is unavailable, report that limitation rather than substituting an unrelated comparison. Paginate large diffs; identify unavailable, generated, binary, or truncated surfaces explicitly.
 
@@ -434,7 +435,7 @@ Discover ADO search/query, team/current-iteration resolution, signed-in identity
 
 The inspected FabricIQ discovery tool supports semantic models and reports, not general discovery of every Fabric workload. Its DAX query tool is not Spark/SQL/KQL authoring. The current tool profile is not evidence that all-workload implementation is available.
 
-Fabric adapters may invoke supporting skills backed by approved CLI/SDK helpers when MCP does not expose the operation. Such substitutions remain explicitly documented and permission-equivalent; scripts do not receive broader authority.
+Use directly installed Fabric skills for their documented scope. A skill's approved CLI/SDK helper remains subject to the same explicit permissions and safety boundaries; tool substitutions must be documented and equivalent, and do not receive broader authority. If no direct skill/tool covers an operation, report it as blocked or manual-only.
 
 ## 10. All-workload capability matrix
 
@@ -444,7 +445,7 @@ Required dimensions:
 
 ```text
 catalogVersion; documentationUrl; workload; itemType; operation;
-adapterSkill; adapterVersion; toolBindings; requiredPermissions;
+runtimeSkills; toolBindings; requiredPermissions;
 tenantAndCapacityPrerequisites; supportedEnvironments;
 sourceControlSupport; branchWorkspaceSupport; sharedWorkspacePrefixFallback;
 authoringPath; validationPath; manualFallback;
@@ -468,7 +469,7 @@ Initial catalog coverage must explicitly include:
 | Industry Solutions | Specific supported solutions/items and their prerequisites |
 | Cross-workload platform | OneLake, governance/catalog, Git integration, variable configuration, CI/CD and operational dependencies |
 
-This list seeds the matrix; it does not claim every named item has an available adapter or API. Industry/preview offerings must be checked against the chosen catalog snapshot.
+This list seeds the matrix; it does not claim every named item has an available direct skill or API. Industry/preview offerings must be checked against the chosen catalog snapshot. When no direct skill/tool binding is available, retain an explicit blocked or manual-only path.
 
 All workloads remain v1 scope. Release cannot claim complete automated operation coverage just because each area has a skill. Every advertised automated operation needs DEV evidence. Explicit manual/blocked paths satisfy truthful handling of unavailable automation, not automated-support claims.
 
@@ -577,7 +578,7 @@ Package checks should count complete skill files, verify links after scratch ins
 1. Build the internal source/provenance inventory and workload/operation matrix against a chosen Fabric documentation snapshot.
 2. Implement configuration validation, shared reference conventions, central artifact-grouped guidance links, tool-discovery profiles, and approval/reconciliation procedures.
 3. Author ten short entry points and progressively disclosed contracts/procedures; adapt/fork supporting expertise into the same constraints.
-4. Prove ADO story/update/task/PR/comment behavior, personal sprint chronology, PR-baseline explanations, central catalog maintenance, and Fabric adapter operations in authorized DEV environments, including partial-failure cases.
+4. Prove ADO story/update/task/PR/comment behavior, personal sprint chronology, PR-baseline explanations, central catalog maintenance, and direct Fabric skill operations in authorized DEV environments, including partial-failure cases.
 5. Validate a pinned package in a clean Copilot consumer, then release only the demonstrated capability claims.
 
 This sequence is package development, not a mandatory end-user skill sequence.

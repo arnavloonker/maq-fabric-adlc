@@ -18,7 +18,7 @@
 | File content at a commit | `azure-devops-repo_file` |
 | Linked story / criteria | `azure-devops-wit_work_item`: `get` |
 | Linked builds (optional) | `azure-devops-pipelines_build` |
-| Dependency evidence (optional) | `azure-devops-search_code`; Fabric adapters read-only |
+| Dependency evidence (optional) | `azure-devops-search_code`; direct Fabric companion skills in read-only scope |
 
 ## Safe substitutions
 Allowed only when semantics, baseline, permissions, and evidence are equivalent; record the substitution in the brief. If the native review diff is unavailable, report that limitation; never substitute an unrelated branch-tip comparison.

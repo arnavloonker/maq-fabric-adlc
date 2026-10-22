@@ -14,8 +14,9 @@
       "workload": "Data Engineering",
       "itemType": "Lakehouse",
       "operation": "create-and-load",
-      "adapterSkill": "maq-fabric-data-engineering",
-      "adapterVersion": "0.1.0",
+      "runtimeSkills": [
+        "spark-cli"
+      ],
       "toolBindings": [
         "spark-cli"
       ],
@@ -31,7 +32,7 @@
       "sourceControlSupport": "unverified",
       "branchWorkspaceSupport": "unverified",
       "sharedWorkspacePrefixFallback": "supported-by-policy",
-      "authoringPath": "companion skill via adapter, approved change set",
+      "authoringPath": "direct Fabric runtime skill, approved change set",
       "validationPath": "bounded read or run-status check at the approved seam",
       "manualFallback": "Human performs the operation in an approved DEV workspace and records evidence.",
       "status": "planned",
@@ -45,8 +46,9 @@
       "workload": "Data Engineering",
       "itemType": "Notebook",
       "operation": "author-and-run",
-      "adapterSkill": "maq-fabric-data-engineering",
-      "adapterVersion": "0.1.0",
+      "runtimeSkills": [
+        "spark-cli"
+      ],
       "toolBindings": [
         "spark-cli"
       ],
@@ -62,7 +64,7 @@
       "sourceControlSupport": "unverified",
       "branchWorkspaceSupport": "unverified",
       "sharedWorkspacePrefixFallback": "supported-by-policy",
-      "authoringPath": "companion skill via adapter, approved change set",
+      "authoringPath": "direct Fabric runtime skill, approved change set",
       "validationPath": "bounded read or run-status check at the approved seam",
       "manualFallback": "Human performs the operation in an approved DEV workspace and records evidence.",
       "status": "planned",
@@ -76,8 +78,9 @@
       "workload": "Data Engineering",
       "itemType": "SparkJobDefinition",
       "operation": "author-and-run",
-      "adapterSkill": "maq-fabric-data-engineering",
-      "adapterVersion": "0.1.0",
+      "runtimeSkills": [
+        "spark-cli"
+      ],
       "toolBindings": [
         "spark-cli"
       ],
@@ -93,7 +96,7 @@
       "sourceControlSupport": "unverified",
       "branchWorkspaceSupport": "unverified",
       "sharedWorkspacePrefixFallback": "supported-by-policy",
-      "authoringPath": "companion skill via adapter, approved change set",
+      "authoringPath": "direct Fabric runtime skill, approved change set",
       "validationPath": "bounded read or run-status check at the approved seam",
       "manualFallback": "Human performs the operation in an approved DEV workspace and records evidence.",
       "status": "planned",
@@ -107,8 +110,9 @@
       "workload": "Data Engineering",
       "itemType": "Environment",
       "operation": "configure",
-      "adapterSkill": "maq-fabric-data-engineering",
-      "adapterVersion": "0.1.0",
+      "runtimeSkills": [
+        "spark-cli"
+      ],
       "toolBindings": [
         "spark-cli"
       ],
@@ -138,11 +142,8 @@
       "workload": "Data Factory",
       "itemType": "DataPipeline",
       "operation": "author-and-run",
-      "adapterSkill": "maq-fabric-data-factory",
-      "adapterVersion": "0.1.0",
-      "toolBindings": [
-        "pipeline-migration"
-      ],
+      "runtimeSkills": [],
+      "toolBindings": [],
       "requiredPermissions": [
         "Contributor or higher on the DEV workspace"
       ],
@@ -155,22 +156,24 @@
       "sourceControlSupport": "unverified",
       "branchWorkspaceSupport": "unverified",
       "sharedWorkspacePrefixFallback": "supported-by-policy",
-      "authoringPath": "companion skill via adapter, approved change set",
+      "authoringPath": "human performs the step in DEV",
       "validationPath": "bounded read or run-status check at the approved seam",
       "manualFallback": "Human performs the operation in an approved DEV workspace and records evidence.",
       "status": "planned",
       "lastValidatedAt": null,
       "validationEvidence": [],
       "knownLimitations": [
-        "No DEV validation evidence yet; not an automated-support claim."
+        "No DEV validation evidence yet; not an automated-support claim.",
+        "No directly applicable Fabric skill/tool binding is currently packaged; do not use the migration skill as a generic pipeline authoring path."
       ]
     },
     {
       "workload": "Data Factory",
       "itemType": "Dataflow Gen2",
       "operation": "author-and-refresh",
-      "adapterSkill": "maq-fabric-data-factory",
-      "adapterVersion": "0.1.0",
+      "runtimeSkills": [
+        "dataflows-cli"
+      ],
       "toolBindings": [
         "dataflows-cli"
       ],
@@ -186,7 +189,7 @@
       "sourceControlSupport": "unverified",
       "branchWorkspaceSupport": "unverified",
       "sharedWorkspacePrefixFallback": "supported-by-policy",
-      "authoringPath": "companion skill via adapter, approved change set",
+      "authoringPath": "direct Fabric runtime skill, approved change set",
       "validationPath": "bounded read or run-status check at the approved seam",
       "manualFallback": "Human performs the operation in an approved DEV workspace and records evidence.",
       "status": "planned",
@@ -200,8 +203,9 @@
       "workload": "Data Warehouse",
       "itemType": "Warehouse",
       "operation": "ddl-dml-and-query",
-      "adapterSkill": "maq-fabric-data-warehouse",
-      "adapterVersion": "0.1.0",
+      "runtimeSkills": [
+        "sqldw-cli"
+      ],
       "toolBindings": [
         "sqldw-cli",
         "fabric-sqlendpoint-execute_query"
@@ -218,7 +222,7 @@
       "sourceControlSupport": "unverified",
       "branchWorkspaceSupport": "unverified",
       "sharedWorkspacePrefixFallback": "supported-by-policy",
-      "authoringPath": "companion skill via adapter, approved change set",
+      "authoringPath": "direct Fabric runtime skill, approved change set",
       "validationPath": "bounded read or run-status check at the approved seam",
       "manualFallback": "Human performs the operation in an approved DEV workspace and records evidence.",
       "status": "planned",
@@ -232,8 +236,7 @@
       "workload": "Data Warehouse",
       "itemType": "SQL analytics endpoint",
       "operation": "bounded-read",
-      "adapterSkill": "maq-fabric-data-warehouse",
-      "adapterVersion": "0.1.0",
+      "runtimeSkills": [],
       "toolBindings": [
         "fabric-sqlendpoint-execute_query"
       ],
@@ -249,7 +252,7 @@
       "sourceControlSupport": "unverified",
       "branchWorkspaceSupport": "unverified",
       "sharedWorkspacePrefixFallback": "supported-by-policy",
-      "authoringPath": "companion skill via adapter, approved change set",
+      "authoringPath": "direct Fabric runtime skill, approved change set",
       "validationPath": "bounded read or run-status check at the approved seam",
       "manualFallback": "Human performs the operation in an approved DEV workspace and records evidence.",
       "status": "planned",
@@ -263,8 +266,9 @@
       "workload": "Databases",
       "itemType": "SQLDatabase",
       "operation": "schema-and-query",
-      "adapterSkill": "maq-fabric-databases",
-      "adapterVersion": "0.1.0",
+      "runtimeSkills": [
+        "sqldb-cli"
+      ],
       "toolBindings": [
         "sqldb-cli"
       ],
@@ -280,7 +284,7 @@
       "sourceControlSupport": "unverified",
       "branchWorkspaceSupport": "unverified",
       "sharedWorkspacePrefixFallback": "supported-by-policy",
-      "authoringPath": "companion skill via adapter, approved change set",
+      "authoringPath": "direct Fabric runtime skill, approved change set",
       "validationPath": "bounded read or run-status check at the approved seam",
       "manualFallback": "Human performs the operation in an approved DEV workspace and records evidence.",
       "status": "planned",
@@ -294,8 +298,7 @@
       "workload": "Databases",
       "itemType": "MirroredDatabase",
       "operation": "configure-and-monitor",
-      "adapterSkill": "maq-fabric-databases",
-      "adapterVersion": "0.1.0",
+      "runtimeSkills": [],
       "toolBindings": [],
       "requiredPermissions": [
         "Contributor or higher on the DEV workspace"
@@ -323,8 +326,9 @@
       "workload": "Real-Time Intelligence",
       "itemType": "Eventstream",
       "operation": "author-and-start",
-      "adapterSkill": "maq-fabric-real-time-intelligence",
-      "adapterVersion": "0.1.0",
+      "runtimeSkills": [
+        "eventstream-cli"
+      ],
       "toolBindings": [
         "eventstream-cli"
       ],
@@ -340,7 +344,7 @@
       "sourceControlSupport": "unverified",
       "branchWorkspaceSupport": "unverified",
       "sharedWorkspacePrefixFallback": "supported-by-policy",
-      "authoringPath": "companion skill via adapter, approved change set",
+      "authoringPath": "direct Fabric runtime skill, approved change set",
       "validationPath": "bounded read or run-status check at the approved seam",
       "manualFallback": "Human performs the operation in an approved DEV workspace and records evidence.",
       "status": "planned",
@@ -354,8 +358,9 @@
       "workload": "Real-Time Intelligence",
       "itemType": "Eventhouse/KQLDatabase",
       "operation": "create-and-query",
-      "adapterSkill": "maq-fabric-real-time-intelligence",
-      "adapterVersion": "0.1.0",
+      "runtimeSkills": [
+        "eventhouse-cli"
+      ],
       "toolBindings": [
         "eventhouse-cli"
       ],
@@ -371,7 +376,7 @@
       "sourceControlSupport": "unverified",
       "branchWorkspaceSupport": "unverified",
       "sharedWorkspacePrefixFallback": "supported-by-policy",
-      "authoringPath": "companion skill via adapter, approved change set",
+      "authoringPath": "direct Fabric runtime skill, approved change set",
       "validationPath": "bounded read or run-status check at the approved seam",
       "manualFallback": "Human performs the operation in an approved DEV workspace and records evidence.",
       "status": "planned",
@@ -385,8 +390,7 @@
       "workload": "Real-Time Intelligence",
       "itemType": "KQLDashboard",
       "operation": "author",
-      "adapterSkill": "maq-fabric-real-time-intelligence",
-      "adapterVersion": "0.1.0",
+      "runtimeSkills": [],
       "toolBindings": [],
       "requiredPermissions": [
         "Contributor or higher on the DEV workspace"
@@ -414,8 +418,9 @@
       "workload": "Real-Time Intelligence",
       "itemType": "Activator/Reflex",
       "operation": "author-rule",
-      "adapterSkill": "maq-fabric-real-time-intelligence",
-      "adapterVersion": "0.1.0",
+      "runtimeSkills": [
+        "activator-cli"
+      ],
       "toolBindings": [
         "activator-cli"
       ],
@@ -431,7 +436,7 @@
       "sourceControlSupport": "unverified",
       "branchWorkspaceSupport": "unverified",
       "sharedWorkspacePrefixFallback": "supported-by-policy",
-      "authoringPath": "companion skill via adapter, approved change set",
+      "authoringPath": "direct Fabric runtime skill, approved change set",
       "validationPath": "bounded read or run-status check at the approved seam",
       "manualFallback": "Human performs the operation in an approved DEV workspace and records evidence.",
       "status": "planned",
@@ -445,8 +450,9 @@
       "workload": "Data Science",
       "itemType": "MLExperiment",
       "operation": "track-runs",
-      "adapterSkill": "maq-fabric-data-science",
-      "adapterVersion": "0.1.0",
+      "runtimeSkills": [
+        "spark-cli"
+      ],
       "toolBindings": [
         "spark-cli"
       ],
@@ -476,8 +482,9 @@
       "workload": "Data Science",
       "itemType": "MLModel",
       "operation": "register-and-score",
-      "adapterSkill": "maq-fabric-data-science",
-      "adapterVersion": "0.1.0",
+      "runtimeSkills": [
+        "spark-cli"
+      ],
       "toolBindings": [
         "spark-cli"
       ],
@@ -507,8 +514,9 @@
       "workload": "Power BI",
       "itemType": "SemanticModel",
       "operation": "author-and-query",
-      "adapterSkill": "maq-fabric-power-bi",
-      "adapterVersion": "0.1.0",
+      "runtimeSkills": [
+        "semantic-model-authoring"
+      ],
       "toolBindings": [
         "semantic-model-authoring",
         "FabricIQ-ExecuteQuery"
@@ -525,7 +533,7 @@
       "sourceControlSupport": "unverified",
       "branchWorkspaceSupport": "unverified",
       "sharedWorkspacePrefixFallback": "supported-by-policy",
-      "authoringPath": "companion skill via adapter, approved change set",
+      "authoringPath": "direct Fabric runtime skill, approved change set",
       "validationPath": "bounded read or run-status check at the approved seam",
       "manualFallback": "Human performs the operation in an approved DEV workspace and records evidence.",
       "status": "planned",
@@ -539,8 +547,9 @@
       "workload": "Power BI",
       "itemType": "Report",
       "operation": "author",
-      "adapterSkill": "maq-fabric-power-bi",
-      "adapterVersion": "0.1.0",
+      "runtimeSkills": [
+        "fabric-report-builder"
+      ],
       "toolBindings": [
         "fabric-report-builder",
         "FabricIQ-GetReportMetadata"
@@ -557,7 +566,7 @@
       "sourceControlSupport": "unverified",
       "branchWorkspaceSupport": "unverified",
       "sharedWorkspacePrefixFallback": "supported-by-policy",
-      "authoringPath": "companion skill via adapter, approved change set",
+      "authoringPath": "direct Fabric runtime skill, approved change set",
       "validationPath": "bounded read or run-status check at the approved seam",
       "manualFallback": "Human performs the operation in an approved DEV workspace and records evidence.",
       "status": "planned",
@@ -571,8 +580,7 @@
       "workload": "Power BI",
       "itemType": "Dashboard",
       "operation": "author",
-      "adapterSkill": "maq-fabric-power-bi",
-      "adapterVersion": "0.1.0",
+      "runtimeSkills": [],
       "toolBindings": [],
       "requiredPermissions": [
         "Contributor or higher on the DEV workspace"
@@ -600,8 +608,9 @@
       "workload": "Fabric IQ",
       "itemType": "Ontology",
       "operation": "author-and-inspect",
-      "adapterSkill": "maq-fabric-iq",
-      "adapterVersion": "0.1.0",
+      "runtimeSkills": [
+        "fabriciq-ontology-cli"
+      ],
       "toolBindings": [
         "fabriciq-ontology-cli"
       ],
@@ -617,7 +626,7 @@
       "sourceControlSupport": "unverified",
       "branchWorkspaceSupport": "unverified",
       "sharedWorkspacePrefixFallback": "supported-by-policy",
-      "authoringPath": "companion skill via adapter, approved change set",
+      "authoringPath": "direct Fabric runtime skill, approved change set",
       "validationPath": "bounded read or run-status check at the approved seam",
       "manualFallback": "Human performs the operation in an approved DEV workspace and records evidence.",
       "status": "planned",
@@ -631,8 +640,7 @@
       "workload": "Fabric IQ",
       "itemType": "Graph/Planning/DataAgent",
       "operation": "author",
-      "adapterSkill": "maq-fabric-iq",
-      "adapterVersion": "0.1.0",
+      "runtimeSkills": [],
       "toolBindings": [],
       "requiredPermissions": [
         "Contributor or higher on the DEV workspace"
@@ -660,8 +668,9 @@
       "workload": "Industry Solutions",
       "itemType": "Industry solution items",
       "operation": "configure",
-      "adapterSkill": "maq-fabric-industry-solutions",
-      "adapterVersion": "0.1.0",
+      "runtimeSkills": [
+        "onelake-catalog-govern-cli"
+      ],
       "toolBindings": [
         "onelake-catalog-govern-cli"
       ],
@@ -691,8 +700,9 @@
       "workload": "Platform",
       "itemType": "OneLake/Catalog",
       "operation": "govern-and-search",
-      "adapterSkill": "maq-fabric-platform",
-      "adapterVersion": "0.1.0",
+      "runtimeSkills": [
+        "onelake-catalog-govern-cli"
+      ],
       "toolBindings": [
         "onelake-catalog-govern-cli"
       ],
@@ -708,7 +718,7 @@
       "sourceControlSupport": "unverified",
       "branchWorkspaceSupport": "unverified",
       "sharedWorkspacePrefixFallback": "supported-by-policy",
-      "authoringPath": "companion skill via adapter, approved change set",
+      "authoringPath": "direct Fabric runtime skill, approved change set",
       "validationPath": "bounded read or run-status check at the approved seam",
       "manualFallback": "Human performs the operation in an approved DEV workspace and records evidence.",
       "status": "planned",
@@ -722,8 +732,9 @@
       "workload": "Platform",
       "itemType": "Git integration",
       "operation": "connect-and-sync",
-      "adapterSkill": "maq-fabric-platform",
-      "adapterVersion": "0.1.0",
+      "runtimeSkills": [
+        "git-integration-operations-cli"
+      ],
       "toolBindings": [
         "git-integration-operations-cli"
       ],
@@ -739,7 +750,7 @@
       "sourceControlSupport": "unverified",
       "branchWorkspaceSupport": "unverified",
       "sharedWorkspacePrefixFallback": "supported-by-policy",
-      "authoringPath": "companion skill via adapter, approved change set",
+      "authoringPath": "direct Fabric runtime skill, approved change set",
       "validationPath": "bounded read or run-status check at the approved seam",
       "manualFallback": "Human performs the operation in an approved DEV workspace and records evidence.",
       "status": "planned",
@@ -753,8 +764,9 @@
       "workload": "Platform",
       "itemType": "VariableLibrary",
       "operation": "configure",
-      "adapterSkill": "maq-fabric-platform",
-      "adapterVersion": "0.1.0",
+      "runtimeSkills": [
+        "variable-library-cli"
+      ],
       "toolBindings": [
         "variable-library-cli"
       ],
@@ -770,7 +782,7 @@
       "sourceControlSupport": "unverified",
       "branchWorkspaceSupport": "unverified",
       "sharedWorkspacePrefixFallback": "supported-by-policy",
-      "authoringPath": "companion skill via adapter, approved change set",
+      "authoringPath": "direct Fabric runtime skill, approved change set",
       "validationPath": "bounded read or run-status check at the approved seam",
       "manualFallback": "Human performs the operation in an approved DEV workspace and records evidence.",
       "status": "planned",
@@ -784,8 +796,9 @@
       "workload": "Platform",
       "itemType": "Deployment pipeline",
       "operation": "inspect-and-plan",
-      "adapterSkill": "maq-fabric-platform",
-      "adapterVersion": "0.1.0",
+      "runtimeSkills": [
+        "deployment-pipelines-authoring-cli"
+      ],
       "toolBindings": [
         "deployment-pipelines-authoring-cli"
       ],

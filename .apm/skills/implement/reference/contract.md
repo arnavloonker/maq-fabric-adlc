@@ -8,8 +8,8 @@ Reviewed code, tests, and documentation for one story scope on a dedicated Git b
 - Story state: build-ready status, agreed `/approach` seam, blockers. A missing task list does not block an otherwise ready story. An unresolved consequential design choice blocks the affected implementation.
 - `maq-project.toon` (ADO repository and Fabric DEV workspace identities) and `capability-matrix.json`. Resolve the repository default branch at runtime. Query bounds are fixed: stated purpose, 250 returned rows, 60-second timeout/budget where supported, no sensitive-row persistence.
 
-## Adapter delegation
-Delegate by artifact type to internal skills: maq-fabric-data-engineering, maq-fabric-data-factory, maq-fabric-data-warehouse, maq-fabric-databases, maq-fabric-real-time-intelligence, maq-fabric-data-science, maq-fabric-power-bi, maq-fabric-iq, maq-fabric-industry-solutions, maq-fabric-platform. An operation with status `blocked`, `manual-only`, `planned`, or `deprecated` in the matrix, or lacking DEV evidence, is reported as blocked or manual-only with manual instructions; never improvised. Adapters get no broader authority than this skill.
+## Direct Fabric skills
+Use the `runtimeSkills` and `toolBindings` for the artifact type in the capability matrix and invoke the installed Fabric skill directly; there is no internal adapter layer. An operation with status `blocked`, `manual-only`, `planned`, or `deprecated` in the matrix, or lacking DEV evidence, is reported as blocked or manual-only with manual instructions; never improvised. Direct skills get no broader authority than this skill.
 
 ## Output report
 Exact commit, branch/worktree, Fabric workspace or prefix isolation used, TDD Red/Green evidence, PR if published, checks run, untested areas, outstanding blockers, and any tool substitutions.

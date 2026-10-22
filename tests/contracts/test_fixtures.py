@@ -81,7 +81,7 @@ for rel, requirements in fixed_contracts.items():
         if requirement not in text:
             errors.append(f"{rel}: missing fixed policy {requirement!r}")
 
-REQUIRED_DIMS = """catalogVersion documentationUrl workload itemType operation adapterSkill adapterVersion
+REQUIRED_DIMS = """catalogVersion documentationUrl workload itemType operation runtimeSkills
 toolBindings requiredPermissions tenantAndCapacityPrerequisites supportedEnvironments sourceControlSupport
 branchWorkspaceSupport sharedWorkspacePrefixFallback authoringPath validationPath manualFallback status
 lastValidatedAt validationEvidence knownLimitations""".split()
@@ -90,6 +90,12 @@ AREAS = {"Data Engineering", "Data Factory", "Data Warehouse", "Databases", "Rea
          "Data Science", "Power BI", "Fabric IQ", "Industry Solutions", "Platform"}
 
 m = json.loads((root / "capability-matrix.json").read_text(encoding="utf-8"))
+source_manifest = json.loads((root / "upstream-sources.json").read_text(encoding="utf-8"))
+fabric_skills = {
+    companion["name"]
+    for companion in source_manifest.get("runtimeCompanions", [])
+    if companion.get("kind") == "skill"
+}
 rows = m.get("rows", [])
 seen = set()
 for i, r in enumerate(rows):
@@ -105,8 +111,14 @@ for i, r in enumerate(rows):
         errors.append(f"matrix row {i}: must not claim validation")
     if r.get("lastValidatedAt") is not None:
         errors.append(f"matrix row {i}: lastValidatedAt must be null")
-    if not (root / ".apm/skills" / str(r.get("adapterSkill")) / "SKILL.md").is_file():
-        errors.append(f"matrix row {i}: adapter skill missing")
+    if not isinstance(r.get("runtimeSkills"), list):
+        errors.append(f"matrix row {i}: runtimeSkills must be a list")
+    elif any(skill not in fabric_skills for skill in r["runtimeSkills"]):
+        errors.append(f"matrix row {i}: runtimeSkills must name declared Fabric companions")
+    elif not set(r["runtimeSkills"]).issubset(set(r.get("toolBindings", []))):
+        errors.append(f"matrix row {i}: runtimeSkills must also appear in toolBindings")
+    if "adapterSkill" in r or "adapterVersion" in r:
+        errors.append(f"matrix row {i}: internal adapter fields are not supported")
     seen.add(r.get("workload"))
 if AREAS - seen:
     errors.append(f"matrix missing workloads: {sorted(AREAS - seen)}")

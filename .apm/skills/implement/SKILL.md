@@ -11,7 +11,7 @@ Load platform identifiers from `maq-project.toon`, capability-matrix.json, and r
 
 Use a dedicated branch and worktree, never discarding dirty work. Isolate Fabric DEV. Write a failing seam test (Red), implement, pass (Green).
 
-Delegate to maq-fabric-* adapter skills. Report unsupported paths as blocked or manual-only.
+Use the direct Fabric runtime skill identified for the artifact type in capability-matrix.json. If no supported skill/tool binding exists, report the operation as blocked or manual-only; do not improvise.
 
 Approval gates: DEV execution, commits, pushes, PR creation, ADO progress updates. Stop on unresolved design decisions, missing permissions, or timeout uncertainty.
 

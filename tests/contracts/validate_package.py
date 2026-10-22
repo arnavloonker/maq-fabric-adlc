@@ -1,7 +1,7 @@
 """Package contract validator: python tests\\contracts\\validate_package.py [package_root]
 Checks: SKILL.md <=199 words, frontmatter name==dir, relative links resolve inside skill dir,
 required workflow skills, minimal TOON template, /best-practices hook."""
-import re, sys
+import json, re, sys
 from pathlib import Path
 
 root = Path(sys.argv[1] if len(sys.argv) > 1 else Path(__file__).resolve().parents[2])
@@ -13,6 +13,11 @@ errors = []
 for name in WORKFLOW:
     if not (skills_dir / name / "SKILL.md").is_file():
         errors.append(f"missing workflow skill: {name}")
+
+adapter_prefix = "maq-fabric-"
+for skill in skills_dir.iterdir():
+    if skill.is_dir() and skill.name.startswith(adapter_prefix):
+        errors.append(f"obsolete internal Fabric adapter skill: {skill.name}")
 
 for skill in sorted(p for p in skills_dir.iterdir() if p.is_dir()):
     md = skill / "SKILL.md"
@@ -55,6 +60,28 @@ for rel in ("project-config/maq-project.schema.json", "project-config/maq-projec
     if (root / rel).exists():
         errors.append(f"obsolete configuration file: {rel}")
 
+apm_manifest = (root / "apm.yml").read_text(encoding="utf-8")
+for dependency in ("microsoft/fabric-skills", "microsoft/azure-devops-skills"):
+    if not re.search(rf"^\s+- {re.escape(dependency)}\s*$", apm_manifest, re.M):
+        errors.append(f"apm.yml: missing APM dependency {dependency}")
+
+sources = json.loads((root / "upstream-sources.json").read_text(encoding="utf-8"))
+ado_dependency = next(
+    (item for item in sources.get("runtimeCompanions", [])
+     if item.get("name") == "microsoft/azure-devops-skills"),
+    None,
+)
+if not ado_dependency or ado_dependency.get("kind") != "apm-dependency" or ado_dependency.get("copied") is not False:
+    errors.append("upstream-sources.json: Azure DevOps skills must be declared as a non-copied APM dependency")
+elif ado_dependency.get("license") != "MIT" or ".github/skills" not in ado_dependency.get("source", ""):
+    errors.append("upstream-sources.json: Azure DevOps dependency source/license metadata is incomplete")
+
+legacy_skill_names = (
+    "maq-fabric-data-engineering", "maq-fabric-data-factory", "maq-fabric-data-science",
+    "maq-fabric-data-warehouse", "maq-fabric-databases", "maq-fabric-industry-solutions",
+    "maq-fabric-iq", "maq-fabric-platform", "maq-fabric-power-bi",
+    "maq-fabric-real-time-intelligence",
+)
 retired_settings = (
     "maq-project.json", "maq-project.schema", "ado.readinessTag", "ado.taskScoping",
     "fabric.devIsolation", "queryLimits.", "bestPractices.centralSource",
@@ -65,6 +92,9 @@ retired_settings = (
 markdown = [root / "README.md", *(root / ".apm").rglob("*.md"), *(root / "docs").rglob("*.md")]
 for md in markdown:
     text = md.read_text(encoding="utf-8")
+    for legacy_name in legacy_skill_names:
+        if legacy_name in text:
+            errors.append(f"{md.relative_to(root)}: obsolete Fabric adapter reference {legacy_name}")
     for setting in retired_settings:
         if setting in text:
             errors.append(f"{md.relative_to(root)}: retired configuration reference {setting}")

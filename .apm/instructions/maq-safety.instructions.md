@@ -1,6 +1,6 @@
 ---
 applyTo: '**'
-description: MAQ Fabric engineering safety rules that apply to every skill, agent, and adapter.
+description: MAQ Fabric engineering safety rules that apply to every skill and agent.
 ---
 # MAQ safety rules
 

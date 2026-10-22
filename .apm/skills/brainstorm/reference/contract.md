@@ -24,7 +24,7 @@
 | Bounded DAX | `FabricIQ-ExecuteQuery` |
 | Lakehouse/Warehouse profiling | `fabric-sqlendpoint-execute_query` (bounded SELECT/aggregate only) |
 
-FabricIQ discovery covers semantic models and reports only; its DAX tool is not Spark/SQL/KQL. Other workloads go through internal Fabric adapter skills per the capability matrix; unsupported paths are reported `blocked` or `manual-only`.
+FabricIQ discovery covers semantic models and reports only; its DAX tool is not Spark/SQL/KQL. For other workloads, use the direct Fabric runtime skill/tool bindings in the capability matrix; unsupported paths are reported `blocked` or `manual-only`.
 
 ## Safe substitutions
 Allowed only if semantics, target scope, permissions, approval boundary, and evidence are equivalent. Record each substitution in findings. A generic SQL surface that can mutate data is not equivalent to a read-only query; a CLI helper cannot exceed missing MCP permissions. Never claim a practice was consulted if lookup failed.

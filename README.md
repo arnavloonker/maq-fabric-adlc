@@ -10,6 +10,8 @@ In your Fabric project repository:
 apm install <git url of this package> --target copilot
 ```
 
+APM also resolves the official `microsoft/fabric-skills` and `microsoft/azure-devops-skills` dependencies; their skill files remain external and are not copied into this package.
+
 Consumer `apm.yml` skeleton (pin an immutable internal release):
 
 ```yaml
@@ -52,7 +54,7 @@ Invoke from Copilot CLI by name:
 | `/status` | Read-only sprint summary |
 | `/best-practices` | Consult or maintain the central practices catalog |
 
-Internal `maq-fabric-*` adapter skills (one per Fabric workload area) are called by the workflow skills, not directly.
+Workflow skills use the relevant skills supplied by `microsoft/fabric-skills` directly. The capability matrix identifies the runtime skill/tool bindings and keeps operations without a supported direct path `blocked` or `manual-only`.
 
 ## Safety
 
