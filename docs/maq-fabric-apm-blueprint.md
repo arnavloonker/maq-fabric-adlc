@@ -17,7 +17,7 @@ Ten human-facing skills form a vocabulary, not a mandatory pipeline:
 | `/to-tasks` | Engineers | Outcome-based child tasks with dependencies |
 | `/implement` | Engineers | Isolated implementation, documentation, findings, and proposed PR |
 | `/verify` | Engineers | Independent adversarial review and agreed test evidence |
-| `/code-diff` | Anyone | Plain-language PR change/impact brief with Mermaid diagrams |
+| `/code-diff` | Anyone | Plain-language PR change/impact brief with highlighted Before/After views |
 | `/status` | Anyone | Read-only personal sprint progress, chronology, and remaining actions |
 | `/best-practices` | Anyone and other skills | Relevant centrally maintained guidance links and proposed catalog updates |
 
@@ -322,7 +322,7 @@ The specification identifies repository revision, live observation time and avai
 
 "Deterministic" describes a sufficiently explicit implementation specification: the engineer should not have to invent consequential design choices. It does not promise identical tool calls, identical AI output, or a conflict-free external system.
 
-Data-model mode: commit the selected, evidenced grain, keys, cardinalities, source mappings, history behavior, medallion placement, transformations, quality/reconciliation seam checks, and downstream semantic/report changes. Show before/after schemas, relationships, or transformations where applicable. Reuse discovery evidence, validating it when stale; do not repeat discovery merely to satisfy a workflow sequence.
+Data-model mode: commit the selected, evidenced grain, keys, cardinalities, source mappings, history behavior, medallion placement, transformations, quality/reconciliation seam checks, and downstream semantic/report changes. Include fenced Mermaid `erDiagram` views for the current and proposed design, with typed attributes, PK/FK/UK roles, and labeled cardinalities. Distinguish observed facts from proposed decisions; list unknown details and explicitly mark absent or unavailable baselines. Use accompanying tables for transformations and column-level changes. Reuse discovery evidence, validating it when stale; do not repeat discovery merely to satisfy a workflow sequence.
 
 Architecture mode: specify current/proposed boundaries, selected interfaces, compatibility, dependencies, rollout/rollback, and parameter-window test seams. Reference the reasons for the selected alternative rather than restarting an unbounded options exercise.
 
@@ -378,7 +378,7 @@ Preferred flow: read PR metadata and the native review diff at identified source
 
 For completed PRs, use the recorded review/merge context rather than comparing current branch tips that may have moved. If the correct baseline or diff is unavailable, report that limitation rather than substituting an unrelated comparison. Paginate large diffs; identify unavailable, generated, binary, or truncated surfaces explicitly.
 
-Output is Markdown with Mermaid only: a concise plain-language explanation of what changed and why when known, before/after artifact or behavior diagrams, direct/downstream impact, intended versus verified outcomes, and source links. Label inferred lineage and impact; unknown relationships remain unknown. Do not invent business benefits or claim runtime success from static changes.
+Output is Markdown: a concise plain-language explanation of what changed and why when known, paired Before/After views, direct/downstream impact, intended versus verified outcomes, and source links. Choose the appropriate format per meaningful change: structured tables, Mermaid artifact/diagram views, or fenced diff code blocks, rather than repeating every format. Anchor Before to the target review baseline and After to the source; highlight additions/changes, identify removals, and preserve unchanged context. Distinguish absent content from unavailable content. Label inferred lineage and impact; unknown relationships remain unknown. Do not invent business benefits or claim runtime success from static changes.
 
 Optional existing PR relations or supplied references can connect the brief to story acceptance criteria, the technical specification, and verification evidence. Do not invent intent when those references are absent.
 
