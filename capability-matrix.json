@@ -14,8 +14,8 @@
       "workload": "Data Engineering",
       "itemType": "Lakehouse",
       "operation": "create-and-load",
-      "adapterSkill": "spark-cli",
-      "adapterVersion": "v0.3.19",
+      "adapterSkill": "maq-fabric-data-engineering",
+      "adapterVersion": "0.1.0",
       "toolBindings": [
         "spark-cli"
       ],
@@ -31,7 +31,7 @@
       "sourceControlSupport": "unverified",
       "branchWorkspaceSupport": "unverified",
       "sharedWorkspacePrefixFallback": "supported-by-policy",
-      "authoringPath": "runtime companion spark-cli, approved change set",
+      "authoringPath": "companion skill via adapter, approved change set",
       "validationPath": "bounded read or run-status check at the approved seam",
       "manualFallback": "Human performs the operation in an approved DEV workspace and records evidence.",
       "status": "planned",
@@ -45,8 +45,8 @@
       "workload": "Data Engineering",
       "itemType": "Notebook",
       "operation": "author-and-run",
-      "adapterSkill": "spark-cli",
-      "adapterVersion": "v0.3.19",
+      "adapterSkill": "maq-fabric-data-engineering",
+      "adapterVersion": "0.1.0",
       "toolBindings": [
         "spark-cli"
       ],
@@ -62,7 +62,7 @@
       "sourceControlSupport": "unverified",
       "branchWorkspaceSupport": "unverified",
       "sharedWorkspacePrefixFallback": "supported-by-policy",
-      "authoringPath": "runtime companion spark-cli, approved change set",
+      "authoringPath": "companion skill via adapter, approved change set",
       "validationPath": "bounded read or run-status check at the approved seam",
       "manualFallback": "Human performs the operation in an approved DEV workspace and records evidence.",
       "status": "planned",
@@ -76,8 +76,8 @@
       "workload": "Data Engineering",
       "itemType": "SparkJobDefinition",
       "operation": "author-and-run",
-      "adapterSkill": "spark-cli",
-      "adapterVersion": "v0.3.19",
+      "adapterSkill": "maq-fabric-data-engineering",
+      "adapterVersion": "0.1.0",
       "toolBindings": [
         "spark-cli"
       ],
@@ -93,7 +93,7 @@
       "sourceControlSupport": "unverified",
       "branchWorkspaceSupport": "unverified",
       "sharedWorkspacePrefixFallback": "supported-by-policy",
-      "authoringPath": "runtime companion spark-cli, approved change set",
+      "authoringPath": "companion skill via adapter, approved change set",
       "validationPath": "bounded read or run-status check at the approved seam",
       "manualFallback": "Human performs the operation in an approved DEV workspace and records evidence.",
       "status": "planned",
@@ -107,8 +107,8 @@
       "workload": "Data Engineering",
       "itemType": "Environment",
       "operation": "configure",
-      "adapterSkill": "spark-cli",
-      "adapterVersion": "v0.3.19",
+      "adapterSkill": "maq-fabric-data-engineering",
+      "adapterVersion": "0.1.0",
       "toolBindings": [
         "spark-cli"
       ],
@@ -124,7 +124,7 @@
       "sourceControlSupport": "unverified",
       "branchWorkspaceSupport": "unverified",
       "sharedWorkspacePrefixFallback": "supported-by-policy",
-      "authoringPath": "runtime companion spark-cli, approved change set",
+      "authoringPath": "human performs the step in DEV",
       "validationPath": "bounded read or run-status check at the approved seam",
       "manualFallback": "Human performs the operation in an approved DEV workspace and records evidence.",
       "status": "manual-only",

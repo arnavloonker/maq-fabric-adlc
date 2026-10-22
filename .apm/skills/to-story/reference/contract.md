@@ -23,9 +23,6 @@
 ## Safe substitutions
 Allowed only when semantics, target scope, permissions, approval boundaries, and evidence are equivalent; record the substitution in the run findings. An unavailable read path is not permission to edit external records. If revision tests are unsupported, reread immediately before writing and report the reduced guarantee.
 
-## Work-item HTML
-`System.Description` and `Microsoft.VSTS.Common.AcceptanceCriteria` use the allowed HTML set from the safety rules. Do not write Markdown into those fields. Preview the rendered fields.
-
 ## Approval rules
 - Approval covers one concrete operation set: target story/project, payload, and read revision.
 - Changed payload, target, or revision invalidates approval; reread and re-preview.

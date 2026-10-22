@@ -8,7 +8,7 @@ Read [the contract](reference/contract.md) and [the procedure](reference/procedu
 
 Inputs: mode (consult, propose-add, propose-update), artifact type, optional source link.
 
-Consult: read only the matching group in [the catalog](reference/catalog.md), then read relevant in-package pages and retrieve external links. Apply that content, never link titles. Stay silent when an optional entry is absent. Surface retrieval failures and consequential conflicts. Never claim consultation that did not happen. Never invoke this skill recursively or load the whole catalog.
+Consult: read only the matching group in [the catalog](reference/catalog.md), then retrieve only relevant linked pages. Apply fetched content, never link titles. Stay silent when an optional entry is absent. Surface retrieval failures and consequential conflicts. Never claim consultation that did not happen. Never invoke this skill recursively or load the whole catalog.
 
 Propose: resolve the installed APM dependency source and pinned revision. Draft the link change against that source, preview, and publish a pull request only after approval. If source resolution or access fails, return a patch and state nothing was updated.
 

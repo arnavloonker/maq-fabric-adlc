@@ -105,12 +105,8 @@ for i, r in enumerate(rows):
         errors.append(f"matrix row {i}: must not claim validation")
     if r.get("lastValidatedAt") is not None:
         errors.append(f"matrix row {i}: lastValidatedAt must be null")
-    skill_file = root / ".apm/skills" / str(r.get("adapterSkill")) / "SKILL.md"
-    if not skill_file.is_file():
-        companions = json.loads((root / "upstream-sources.json").read_text(encoding="utf-8")).get("runtimeCompanions", [])
-        names = {item.get("name") for item in companions if item.get("copied") is False and item.get("kind") == "skill"}
-        if r.get("adapterSkill") not in names:
-            errors.append(f"matrix row {i}: adapter skill missing")
+    if not (root / ".apm/skills" / str(r.get("adapterSkill")) / "SKILL.md").is_file():
+        errors.append(f"matrix row {i}: adapter skill missing")
     seen.add(r.get("workload"))
 if AREAS - seen:
     errors.append(f"matrix missing workloads: {sorted(AREAS - seen)}")

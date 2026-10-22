@@ -8,7 +8,6 @@
 6. **Read intent (optional).** From PR-linked or supplied story/approach/verification, collect acceptance criteria, approach decisions, and evidence. When absent, say intent is not stated; do not invent it.
 7. **Build the brief** from `brief-template.md`: plain-language summary, before/after Mermaid topology, impact, intended versus verified table. Write for a non-author: short sentences, concrete names, no filler, no praise, no hedging stacks.
 8. **Self-check.** Every claim traces to a file, commit, or record. Verified means evidence exists; a static read is "reviewed", not "run". Mermaid is unrendered unless you rendered it.
-9. **Present** the brief in chat. Offer to save to `references\pull-requests\<repository-id>\<pr-id>\<review-version>.md` (review-version = iteration ID). Save only on request after previewing the path and content. Stop here unless the user asks to post the brief.
-10. **Approved comment.** This is a separate approval from producing the brief. Preview the exact Markdown comment, which is the finished brief and nothing else. After that approval, post one comment with `azure-devops-repo_pull_request_thread_write`. Do not vote, complete, or update a work item. A changed brief invalidates the approval.
+9. **Present** the brief in chat. Offer to save to `references\pull-requests\<repository-id>\<pr-id>\<review-version>.md` (review-version = iteration ID). Save only on request after previewing the path and content.
 
-Stop conditions: PR not found or no access; baseline unavailable; the user asks for a vote, completion, or work-item update.
+Stop conditions: PR not found or no access; baseline unavailable; user asks for any ADO write (explain it is out of scope or require preview and approval for a separately requested publication).

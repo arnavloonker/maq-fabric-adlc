@@ -24,7 +24,6 @@ These rules override any skill, user shortcut, or tool default.
 
 ## ADO writes
 - Read the work item first, then write with a `Test` on `/rev` using the revision just read. On a revision conflict, re-read, re-preview, and re-approve.
-- `System.Description`, `Microsoft.VSTS.Common.AcceptanceCriteria`, and Task description are HTML. The allowed HTML set is `<h2>`, `<p>`, `<ul>`, `<ol>`, `<li>`, `<strong>`, `<table>`. Do not write Markdown into those fields. Do not escape the tags. Preview the rendered fields, not the source. Comments stay plain text.
 - On a timeout or unknown outcome, do not retry blindly. Reconcile first: read current state, compare with the intended change, and write only the missing part.
 - Do not invent tool argument shapes; discover schemas. An unavailable read path is not permission to edit external records.
 

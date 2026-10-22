@@ -12,7 +12,6 @@ Links only, grouped by artifact type. Central package only; do not copy into a p
 - https://learn.microsoft.com/en-us/azure/devops/boards/backlogs/add-work-items?view=azure-devops
 
 ## ADO Pull Request
-- [MAQ pull request practice](ado-pull-request.md)
 - https://learn.microsoft.com/en-us/azure/devops/repos/git/pull-requests?view=azure-devops
 - https://learn.microsoft.com/en-us/azure/devops/repos/git/review-pull-requests?view=azure-devops
 - https://learn.microsoft.com/en-us/azure/devops/repos/git/branch-policies?view=azure-devops
