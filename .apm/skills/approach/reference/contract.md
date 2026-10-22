@@ -6,7 +6,7 @@
 - Missing configuration blocks only the dependent operation (for example, no Fabric workspace blocks live validation but not repository-only analysis).
 
 ## Outputs
-1. A technical approach section written into the story's dedicated approach field/section (other story sections are preserved untouched).
+1. A technical approach.md file attached to the Azure Devops user story.
 2. A single **Seam** and a draft **Verification Contract** inside that section.
 3. The fixed `build-ready` tag present or absent on the story.
 4. A final report: story URL, tag state, resolved decisions, open blockers, unvalidated assumptions.
@@ -14,6 +14,7 @@
 ## Approach section required content
 - Provenance: repository revision (commit), live observation time, environment, artifact definition/version where available.
 - Current behavior (before) and proposed behavior (after). Proposed changes are never described as deployed.
+- In data-model mode, current/proposed Mermaid ER diagrams following [data-model mode](data-model.md), with typed attributes, key roles, and labeled cardinalities; explicitly identify absent or unavailable baselines and unresolved details.
 - Artifact-by-artifact scope: each artifact marked create / update / remove / no-change.
 - Dependencies and interfaces; migration, compatibility, rollout and rollback where relevant.
 - Decisions made, each with the rejected alternatives and reason.

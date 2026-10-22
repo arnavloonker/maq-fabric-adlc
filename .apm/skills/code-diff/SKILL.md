@@ -1,6 +1,6 @@
 ---
 name: code-diff
-description: Use when you need a plain-language impact brief for an Azure DevOps pull request, with Mermaid diagrams.
+description: Use when you need a plain-language impact brief for an Azure DevOps pull request, with highlighted before/after views.
 ---
 # Code diff
 
@@ -13,4 +13,4 @@ Paginate; name unavailable, generated, binary, or truncated surfaces.
 
 Gates: read-only on ADO. No comments, votes, work-item updates, or verdicts. Saving to references\pull-requests\<repo-id>\<pr-id>\<review-version>.md only after approval. Never claim Mermaid was rendered unless it was.
 
-Output: Markdown brief with Mermaid: what changed, before/after topology, downstream impact, intended versus verified, sources. Label inference; unknown stays unknown.
+Output: Markdown brief with paired Before/After views: choose a table, Mermaid artifact diagram, or diff code blocks per change; highlight additions and changes. Include downstream impact, intended versus verified, and sources. Label inference; unknown stays unknown.

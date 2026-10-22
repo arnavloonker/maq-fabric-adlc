@@ -46,11 +46,11 @@ Invoke from Copilot CLI by name:
 | `/brainstorm` | Explore a problem and capture evidence |
 | `/to-story` | Turn context into an ADO User Story (approved write) |
 | `/domain` | Record business-domain knowledge |
-| `/approach` | Technical approach, seam verification contract, readiness tag |
+| `/approach` | Technical approach with data-model ER designs, seam verification contract, readiness tag |
 | `/to-tasks` | Vertical-slice ADO Tasks |
 | `/implement` | Build in DEV with TDD at the seam |
 | `/verify` | Verify the seam; separate-context review |
-| `/code-diff` | PR change brief |
+| `/code-diff` | PR change brief with highlighted Before/After views |
 | `/status` | Read-only sprint summary |
 | `/best-practices` | Consult or maintain the central practices catalog |
 
@@ -69,6 +69,7 @@ See `.apm\instructions\maq-safety.instructions.md`: DEV-only mutation, no automa
 ```powershell
 python tests\contracts\test_fixtures.py
 python tests\contracts\validate_package.py
+python tests\contracts\test_visual_briefs.py
 ```
 
 Install the test-only TOON decoder with `python -m pip install -r tests\contracts\requirements.txt`. Consumers do not need a parser or JSON Schema to use the skills.
