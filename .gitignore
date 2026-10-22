@@ -1,3 +1,7 @@
 __pycache__/
 .agent-tmp/
 
+.github/agents/tokenguard-index-research.agent.md
+.github/instructions/tokenguard-code-index.instructions.md
+.tokenguard/knowledge-index.db
+.tokenguard/knowledge-index.db.bak

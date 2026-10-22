@@ -5,6 +5,13 @@ targets:
   - copilot
 includes: auto
 dependencies:
-  apm: []
-  mcp: []
+  apm:
+    - microsoft/fabric-skills
+  mcp:
+    - name: azure-devops
+      command: npx
+      args:
+        - "-y"
+        - "@azure-devops/mcp"
+        - "${AZURE_DEVOPS_ORG}"
 scripts: {}
