@@ -11,6 +11,6 @@ Consult /best-practices for the PR and affected artifact types.
 Anchor to the PR's native review diff (get, iterations) at recorded baselines, never current branch tips.
 Paginate; name unavailable, generated, binary, or truncated surfaces.
 
-Gates: read-only on ADO. No comments, votes, work-item updates, or verdicts. Saving to references\pull-requests\<repo-id>\<pr-id>\<review-version>.md only after approval. Never claim Mermaid was rendered unless it was.
+Gates: read-only until a separate approval. That approval posts one Markdown pull-request comment. No votes, work-item updates, or verdicts. Saving to references\pull-requests\<repo-id>\<pr-id>\<review-version>.md only after approval. Never claim Mermaid was rendered unless it was.
 
 Output: Markdown brief with Mermaid: what changed, before/after topology, downstream impact, intended versus verified, sources. Label inference; unknown stays unknown.

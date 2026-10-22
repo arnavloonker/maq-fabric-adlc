@@ -20,7 +20,7 @@ Draft vertical tracer-bullet slices from the approach, ordered by dependency. Ea
 Ask exactly one question at a time, each with a recommended answer. Typical questions: slice thickness, first tracer bullet, whether to split or merge a slice, dependency order, which seam check per slice. Update the proposal after each answer. Repeat until the engineer explicitly approves the granularity. Do not batch questions or proceed on silence.
 
 ## 6. Preview
-Show a table of tasks to create (parent, type, title, description, tags, iteration/area, assignee if explicitly selected), tasks already existing (skipped), and dependency links (source, target, link type). Obtain explicit approval. Re-preview if anything changes.
+Show a table of tasks to create (parent, type, title, description, tags, iteration/area, assignee if explicitly selected), tasks already existing (skipped), and dependency links (source, target, link type). Task description is allowed HTML, not Markdown; preview it rendered. Obtain explicit approval. Re-preview if anything changes.
 
 ## 7. Create
 - Create each missing task with `add_child` (or `create` plus a parent link), one at a time, recording the returned ID against its intent key.

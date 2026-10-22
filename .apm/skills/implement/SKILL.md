@@ -11,7 +11,7 @@ Load platform identifiers from `maq-project.toon`, capability-matrix.json, and r
 
 Use a dedicated branch and worktree, never discarding dirty work. Isolate Fabric DEV. Write a failing seam test (Red), implement, pass (Green).
 
-Delegate to maq-fabric-* adapter skills. Report unsupported paths as blocked or manual-only.
+Delegate lakehouse, notebook, Spark job, and environment work to the spark-cli runtime companion. Delegate other workloads to maq-fabric-* adapter skills. Report unsupported paths as blocked or manual-only.
 
 Approval gates: DEV execution, commits, pushes, PR creation, ADO progress updates. Stop on unresolved design decisions, missing permissions, or timeout uncertainty.
 

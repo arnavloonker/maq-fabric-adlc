@@ -52,7 +52,7 @@ Invoke from Copilot CLI by name:
 | `/status` | Read-only sprint summary |
 | `/best-practices` | Consult or maintain the central practices catalog |
 
-Internal `maq-fabric-*` adapter skills (one per Fabric workload area) are called by the workflow skills, not directly.
+Lakehouse, notebook, Spark job, and environment work calls the `spark-cli` runtime companion from the pinned Fabric skills package. Other internal `maq-fabric-*` adapter skills are called by the workflow skills, not directly.
 
 ## Safety
 

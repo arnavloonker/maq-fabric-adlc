@@ -5,6 +5,7 @@ targets:
   - copilot
 includes: auto
 dependencies:
-  apm: []
+  apm:
+    - https://github.com/microsoft/skills-for-fabric#v0.3.19
   mcp: []
 scripts: {}

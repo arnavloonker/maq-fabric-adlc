@@ -15,6 +15,7 @@
 | PR metadata, linked work items | `azure-devops-repo_pull_request`: `get` |
 | Review iterations, changes, diff baselines | `azure-devops-repo_pull_request`: `iterations` |
 | Threads (context only) | `azure-devops-repo_pull_request_thread` |
+| Approved brief comment | `azure-devops-repo_pull_request_thread_write` |
 | File content at a commit | `azure-devops-repo_file` |
 | Linked story / criteria | `azure-devops-wit_work_item`: `get` |
 | Linked builds (optional) | `azure-devops-pipelines_build` |
@@ -24,7 +25,7 @@
 Allowed only when semantics, baseline, permissions, and evidence are equivalent; record the substitution in the brief. If the native review diff is unavailable, report that limitation; never substitute an unrelated branch-tip comparison.
 
 ## Rules
-- Read-only on ADO and Fabric: no PR comments, approval votes, completion, work-item updates, or verification verdicts. Any requested external publication needs a preview and approval.
+- The default is read-only until a separate approval. That approval posts one Markdown pull-request comment containing the finished brief, and nothing else. No approval votes, completion, work-item updates, or verification verdicts.
 - Completed PRs use the recorded review/merge context, not current tips that may have moved.
 - Label inferred lineage and impact; unknown relationships remain unknown.
 - Do not invent business benefits or intent when references are absent.

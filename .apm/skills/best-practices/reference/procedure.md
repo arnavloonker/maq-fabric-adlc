@@ -3,7 +3,7 @@
 ## Consult
 1. Map the caller's scope to artifact groups in `catalog.md` (for example notebook edit -> Notebook; story drafting -> ADO User Story; PR publication -> ADO Pull Request).
 2. Open `catalog.md` and read only those groups. If the file cannot be read, report a retrieval failure; do not continue as if consulted.
-3. Select the links relevant to the task. Retrieve each with an available fetch tool. Retrieve nothing speculative.
+3. Select the links relevant to the task. Read an in-package page from the package. Retrieve an external link with an available fetch tool. Retrieve nothing speculative.
 4. If a group has no entry, return nothing and let the caller proceed. Do not announce it.
 5. If a retrieval fails (network, permission, moved page), report URL and error to the caller, and mark that source unchecked.
 6. Compare retrieved guidance with the approved project standards and shared safety rules. If they conflict consequentially, report both sources and the affected operation, and pause that operation for a human decision. Never weaken safety rules.

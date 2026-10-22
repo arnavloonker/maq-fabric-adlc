@@ -21,6 +21,9 @@ Outcome-based ADO child tasks under one story, with dependency links. Result goe
 - Stop and report if: the story has no agreed seam or has open consequential decisions; required ADO tools or link types are unavailable; reconciliation is inconclusive.
 - A missing task list never blocks `/implement`; this skill is optional.
 
+## Work-item HTML
+Task description uses the allowed HTML set from the safety rules. Do not write Markdown into that field. Preview the rendered field.
+
 ## Prohibitions
 - Never invent scope absent from the story. Never resolve consequential decisions silently.
 - Never duplicate, edit, reparent, or close existing tasks. Humans decide state closure.

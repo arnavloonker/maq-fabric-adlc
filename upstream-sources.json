@@ -4,7 +4,7 @@
   "statement": "All package content is original MAQ-authored work. Referenced skills and MCP servers are runtime companions resolved on the consumer machine; no upstream prose, code, or assets are copied into this package.",
   "forks": [],
   "runtimeCompanions": [
-    { "name": "spark-cli", "kind": "skill", "usage": "referenced by maq-fabric-data-engineering and maq-fabric-data-science", "copied": false },
+    { "name": "spark-cli", "kind": "skill", "usage": "runtime companion for lakehouse, notebook, Spark job, and environment; also referenced by maq-fabric-data-science", "copied": false },
     { "name": "sqldw-cli", "kind": "skill", "usage": "referenced by maq-fabric-data-warehouse", "copied": false },
     { "name": "sqldb-cli", "kind": "skill", "usage": "referenced by maq-fabric-databases", "copied": false },
     { "name": "pipeline-migration", "kind": "skill", "usage": "referenced by maq-fabric-data-factory", "copied": false },

@@ -11,7 +11,7 @@
 - No project-local catalog, no `references\best-practices` folder in a consumer. A project may record that a practice was considered as run evidence only.
 
 ## Consultation rules
-1. Read only the group(s) matching the caller's artifact types; retrieve only pages relevant to the task, on demand.
+1. Read only the group(s) matching the caller's artifact types. Read relevant in-package pages from the package, and retrieve external pages on demand.
 2. Apply retrieved page content. Never infer guidance from link titles.
 3. Absent optional entry: continue silently; the caller uses official documentation through its normal procedure.
 4. Retrieval failure, unchecked required standard, or consequential conflict is not an empty lookup. Report it with the source and affected scope. A consequential conflict pauses the affected operation.

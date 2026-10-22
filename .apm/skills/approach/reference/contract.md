@@ -37,6 +37,9 @@ Exactly one: the highest-level Fabric boundary at which the outcome is observabl
 - Removed (with a comment stating why) if any blocker reopens, the baseline is found stale, or the contract is changed after approval.
 - The tag name is always `build-ready`; never substitute another readiness tag.
 
+## Work-item HTML
+The approach section written into the story uses the allowed HTML set from the safety rules. Do not write Markdown into that field. Preview the rendered field.
+
 ## Safety
 - Read-only by default; only approved, bounded DEV scratch work in experiment mode, including cleanup.
 - Never mutate UAT/PROD, enable PR auto-complete, or close work items.
