@@ -7,7 +7,6 @@ includes: auto
 dependencies:
   apm:
     - microsoft/fabric-skills
-    - microsoft/azure-devops-skills
   # registry: false marks self-defined servers, skipping registry lookup.
   # Fabric servers are re-declared from microsoft/fabric-skills so they are
   # trusted as direct dependencies without --trust-transitive-mcp.

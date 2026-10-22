@@ -10,7 +10,7 @@ In your Fabric project repository:
 apm install <git url of this package> --target copilot
 ```
 
-APM also resolves the official `microsoft/fabric-skills` and `microsoft/azure-devops-skills` dependencies; their skill files remain external and are not copied into this package.
+APM also resolves the official `microsoft/fabric-skills` dependency; its skill files remain external and are not copied into this package.
 
 Consumer `apm.yml` skeleton (pin an immutable internal release):
 

@@ -27,7 +27,6 @@ Add to your Copilot CLI MCP configuration (for example `~/.copilot/mcp-config.js
 - Sign in through the browser prompt on first use with the account that has project access.
 - Verify: list projects, then read one work item in the configured project.
 - Writes remain subject to preview, approval, and revision checks in the safety rules.
-- Azure DevOps workflow skills are resolved directly from the `microsoft/azure-devops-skills` APM dependency; rediscover the available skill/tool schemas instead of assuming server-version-specific arguments.
 
 ## Fabric and FabricIQ MCP
 

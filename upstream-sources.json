@@ -19,7 +19,6 @@
     { "name": "deployment-pipelines-authoring-cli", "kind": "skill", "usage": "direct Fabric companion for deployment pipeline operations", "copied": false },
     { "name": "variable-library-cli", "kind": "skill", "usage": "direct Fabric companion for Variable Library operations", "copied": false },
     { "name": "onelake-catalog-govern-cli", "kind": "skill", "usage": "direct Fabric companion for OneLake catalog and governance operations", "copied": false },
-    { "name": "microsoft/azure-devops-skills", "kind": "apm-dependency", "source": "https://github.com/microsoft/azure-devops-skills/tree/main/.github/skills", "license": "MIT", "usage": "Azure DevOps skills resolved by APM; no upstream files are copied", "copied": false },
     { "name": "@azure-devops/mcp", "kind": "mcp-server", "usage": "ADO reads and approved writes", "copied": false },
     { "name": "FabricIQ", "kind": "mcp-server", "usage": "semantic model and report discovery and DAX", "copied": false },
     { "name": "fabric-sqlendpoint", "kind": "mcp-server", "usage": "bounded SQL endpoint reads", "copied": false }

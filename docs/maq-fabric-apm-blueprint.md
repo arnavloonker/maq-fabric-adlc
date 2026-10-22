@@ -171,12 +171,11 @@ includes: auto
 dependencies:
   apm:
     - microsoft/fabric-skills
-    - microsoft/azure-devops-skills
   mcp: []
 scripts: {}
 ```
 
-The official Fabric and Azure DevOps skill collections are resolved as external APM dependencies; their source files are not copied into this package. `includes: auto` is documented consent to include local package content, not a guarantee that only desirable files ship. Inspect the produced bundle before release; never keep customer artifacts or secrets in the producer tree.
+The official Fabric skill collection is resolved as an external APM dependency; its source files are not copied into this package. `includes: auto` is documented consent to include local package content, not a guarantee that only desirable files ship. Inspect the produced bundle before release; never keep customer artifacts or secrets in the producer tree.
 
 Consumer skeleton:
 

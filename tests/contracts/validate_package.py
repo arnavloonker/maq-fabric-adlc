@@ -61,20 +61,9 @@ for rel in ("project-config/maq-project.schema.json", "project-config/maq-projec
         errors.append(f"obsolete configuration file: {rel}")
 
 apm_manifest = (root / "apm.yml").read_text(encoding="utf-8")
-for dependency in ("microsoft/fabric-skills", "microsoft/azure-devops-skills"):
+for dependency in ("microsoft/fabric-skills",):
     if not re.search(rf"^\s+- {re.escape(dependency)}\s*$", apm_manifest, re.M):
         errors.append(f"apm.yml: missing APM dependency {dependency}")
-
-sources = json.loads((root / "upstream-sources.json").read_text(encoding="utf-8"))
-ado_dependency = next(
-    (item for item in sources.get("runtimeCompanions", [])
-     if item.get("name") == "microsoft/azure-devops-skills"),
-    None,
-)
-if not ado_dependency or ado_dependency.get("kind") != "apm-dependency" or ado_dependency.get("copied") is not False:
-    errors.append("upstream-sources.json: Azure DevOps skills must be declared as a non-copied APM dependency")
-elif ado_dependency.get("license") != "MIT" or ".github/skills" not in ado_dependency.get("source", ""):
-    errors.append("upstream-sources.json: Azure DevOps dependency source/license metadata is incomplete")
 
 legacy_skill_names = (
     "maq-fabric-data-engineering", "maq-fabric-data-factory", "maq-fabric-data-science",

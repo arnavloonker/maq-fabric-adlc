@@ -5,3 +5,7 @@ __pycache__/
 .github/instructions/tokenguard-code-index.instructions.md
 .tokenguard/knowledge-index.db
 .tokenguard/knowledge-index.db.bak
+
+
+# APM dependencies
+apm_modules/
