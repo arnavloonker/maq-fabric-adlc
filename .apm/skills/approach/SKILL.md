@@ -1,12 +1,12 @@
 ---
 name: approach
-description: Use when a story needs a build-ready before/after technical approach and draft Verification Contract in data-model, architecture, or experiment mode.
+description: Use when a story needs a build-ready before/after technical approach and draft Verification Contract in data-product, architecture, or experiment mode.
 ---
 # Approach
 
 Produces the story's approach section: before/after spec, single highest-level Seam, draft Verification Contract. Inputs: story ID, mode.
 
-Read [contract](reference/contract.md) and [procedure](reference/procedure.md), then the mode file: [data-model](reference/data-model.md), [architecture](reference/architecture.md), or [experiment](reference/experiment.md).
+Read [contract](reference/contract.md) and [procedure](reference/procedure.md), then the mode file: [data-product](reference/data-product.md), [architecture](reference/architecture.md), or [experiment](reference/experiment.md).
 
 Load `maq-project.toon` only for required platform identifiers and relevant domain records and findings. Consult /best-practices for each artifact type inspected or specified.
 

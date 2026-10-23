@@ -10,7 +10,7 @@
    - Include the evidence and a recommended answer.
    - Wait for the answer, record it, and re-evaluate before the next question.
    Never batch questions or decide silently.
-7. **Specify.** Follow the mode file. Write before/after, artifact scope, dependencies, rollout/rollback. For data-model mode, include the current/proposed ER diagrams from [the mode guidance](data-model.md), marking proposed and unknown details explicitly.
+7. **Specify.** Follow the mode file. Write before/after, artifact scope, dependencies, rollout/rollback. For data-product mode, select the relevant documentation views from [the mode guidance](data-product.md), explain omissions, and keep source-to-Seam traceability explicit.
 8. **Seam and contract.** Pick the single highest-level Seam; draft the Verification Contract (gold counts, key uniqueness, DAX measure with known value, fast-feedback window). Ask the user to approve or amend it, one question at a time.
 9. **Preview.** Show the exact approach section diff and the intended tag change (add, keep, or remove). Approval covers this payload only; any change invalidates it.
 10. **Write.** Update through the ADO write tool (preferred `azure-devops-wit_work_item_write` `update`) with the first operation a `Test` on `/rev` using the revision read. On conflict, reread, merge or re-preview, never overwrite. On timeout, read the item and compare to intent before retrying; if inconclusive, stop and report.

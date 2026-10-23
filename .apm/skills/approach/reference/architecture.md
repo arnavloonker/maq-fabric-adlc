@@ -1,6 +1,6 @@
 # Mode: architecture
 
-Use for platform, framework, or pipeline-structure changes. Reference the reason an alternative was selected (from `/brainstorm` or the story); do not restart an unbounded options exercise.
+Use for shared platform, reusable framework, workspace topology, or cross-product contract changes. Product-specific ingestion, transformation, model, or pipeline changes belong in `data-product` mode. Reference the reason an alternative was selected (from `/brainstorm` or the story); do not restart an unbounded options exercise.
 
 ## Specify
 - **Current boundaries** and **proposed boundaries**: components, workspaces, items, and owners (before/after diagram in Mermaid).

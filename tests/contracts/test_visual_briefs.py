@@ -13,20 +13,28 @@ def read_skill(name, filename):
 
 
 class VisualBriefContracts(unittest.TestCase):
-    def test_approach_wires_er_diagrams_into_the_specification(self):
-        mode = read_skill("approach", "reference/data-model.md")
-        self.assertIn("## ER diagrams", mode)
+    def test_approach_wires_data_product_views_into_the_specification(self):
+        mode = read_skill("approach", "reference/data-product.md")
+        for view in (
+            "Source and ingestion", "Transformation and lineage", "Data model",
+            "Pipeline orchestration", "Serving and operations",
+        ):
+            with self.subTest(view=view):
+                self.assertIn(view, mode)
         for label in ("**Before**", "**After (proposed)**", "unknown", "not present"):
             with self.subTest(label=label):
                 self.assertIn(label, mode)
         self.assertIn(
-            "[data-model mode](data-model.md)",
+            "[data-product mode](data-product.md)",
             read_skill("approach", "reference/contract.md"),
         )
-        self.assertIn("ER diagrams", read_skill("approach", "reference/procedure.md"))
+        self.assertIn(
+            "documentation views",
+            read_skill("approach", "reference/procedure.md"),
+        )
 
     def test_er_example_defines_entities_keys_and_cardinalities(self):
-        mode = read_skill("approach", "reference/data-model.md")
+        mode = read_skill("approach", "reference/data-product.md")
         diagrams = re.findall(r"```mermaid\n(erDiagram\n.*?)\n```", mode, re.S)
         self.assertEqual(len(diagrams), 1)
         diagram = diagrams[0]
@@ -51,6 +59,14 @@ class VisualBriefContracts(unittest.TestCase):
         ])
         self.assertNotIn(r"\_", diagram)
         self.assertIn("Synthetic example", mode)
+
+    def test_data_product_examples_cover_lineage_and_orchestration(self):
+        mode = read_skill("approach", "reference/data-product.md")
+        self.assertEqual(mode.count("```mermaid"), 3)
+        self.assertIn("flowchart LR", mode)
+        self.assertIn("flowchart TD", mode)
+        self.assertIn("failure after retries", mode)
+        self.assertIn("Source-to-target reconciliation", mode)
 
     def test_code_diff_routes_to_format_appropriate_comparisons(self):
         entry = read_skill("code-diff", "SKILL.md")
