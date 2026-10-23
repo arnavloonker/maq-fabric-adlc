@@ -16,6 +16,6 @@ Discover available Azure DevOps tools, read type metadata, search related work, 
 
 Stop gates: no ADO write without approval of the exact previewed payload; a changed payload, target, or revision invalidates it. Stop if a write timeout cannot be reconciled.
 
-Preserve existing content, especially Technical Approach. Revision-check updates. Apply `platform-architecture`, `data-engineering`, or `experiment` when applicable.
+Preserve existing content, especially Technical Approach. Revision-check updates. Apply `platform`, `data-engineering`, or `experiment` when applicable.
 
 Output: read back the story, report its URL and unresolved blockers in chat. Never close it.

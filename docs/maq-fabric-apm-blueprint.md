@@ -99,7 +99,7 @@ maq-fabric-engineering\
       approach\
         reference\
           data-product.md
-          architecture.md
+          platform.md
           experiment.md
       to-tasks\
       implement\
@@ -278,7 +278,7 @@ Inputs: intent, relevant repository/story/artifact identities, allowed explorati
 
 Preferred flow: state the hypothesis and what would support or refute it; inspect code and domain index; consult artifact-specific practices and modeling expertise when relevant; resolve authorized Fabric artifacts; inspect schemas/definitions and bounded query results through directly installed Fabric skills/tools; elicit unresolved decisions from the user via a grilling loop (strictly one question at a time, always with a recommended answer); test alternatives and success criteria; record findings.
 
-Branches: architecture/framework feasibility, experiment/new workload, or data-product semantics and modeling feasibility. For a data ask, profile candidate grain, key uniqueness, joins, and sample reconciliations to establish whether the proposed model answers the requirement without distorting the data. This is exploratory modeling, not an implicit final implementation contract.
+Branches: platform capability/framework feasibility, experiment/new workload, or data-product semantics and modeling feasibility. For a data ask, profile candidate grain, key uniqueness, joins, and sample reconciliations to establish whether the proposed model answers the requirement without distorting the data. This is exploratory modeling, not an implicit final implementation contract.
 
 Read-only is the default. A hypothesis may require an explicitly approved, bounded DEV experiment with identified scratch artifacts, permissions, execution/time/cost limits, evidence expectations, and cleanup. Creation, execution, and cleanup are mutations within the approved scope; failed cleanup is reported. Do not promote an experimental artifact or write production code without a separate authorized scope.
 
@@ -296,7 +296,7 @@ Preferred ADO flow: consult `/best-practices` for User Story; verify the native 
 
 Story sections: outcome; evidenced business context; scope/non-goals; acceptance criteria; decisions; consequential open questions; exploration findings/examples; references; technical approach.
 
-Preserve a current approach section when refreshing other sections. Propose fixed package tags `platform-architecture`, `data-engineering`, and `experiment` when applicable, preserving existing tags. Preview additions; these are not universal ADO tags.
+Preserve a current approach section when refreshing other sections. Propose fixed package tags `platform`, `data-engineering`, and `experiment` when applicable, preserving existing tags. Preview additions; these are not universal ADO tags.
 
 A draft may retain blocking questions. The story must distinguish unresolved questions from requirements. Output includes the story URL and blockers, not a false ready-for-build claim.
 
@@ -324,7 +324,7 @@ The specification identifies repository revision, live observation time and avai
 
 Data-product mode: trace evidenced sources through ingestion, transformations, medallion layers, model grain/keys/history, pipeline orchestration, serving interfaces, operations, and the selected Seam. Select only consequential documentation views and explain omissions. Use source/mapping tables, lineage and orchestration flowcharts, and current/proposed Mermaid `erDiagram` views where relevant. Distinguish observed facts from proposed decisions; list unknown details and explicitly mark absent or unavailable baselines. Reuse discovery evidence, validating it when stale; do not repeat discovery merely to satisfy a workflow sequence.
 
-Architecture mode: specify current/proposed boundaries, selected interfaces, compatibility, dependencies, rollout/rollback, and parameter-window test seams. Reference the reasons for the selected alternative rather than restarting an unbounded options exercise.
+Platform mode (reusable capabilities such as cross-cutting pipelines, logging, and frameworks): specify the platform need, current/proposed boundaries, consumer contract and adoption, compatibility, operability, dependencies, rollout/rollback, and parameter-window test seams. Reference the reasons for the selected alternative rather than restarting an unbounded options exercise.
 
 Experiment mode: specify the selected experiment precisely, including baseline, artifact/configuration changes, bounded DEV execution, time/cost limits, measurements, acceptance of the learning result, and cleanup/rollback. `/brainstorm` may already have run discovery experiments; `/approach` does not need to duplicate them or turn them into production claims.
 
@@ -536,7 +536,7 @@ Validate all-workload coverage as a release gate, not an assumed property of imp
 | A brainstorm hypothesis fails reconciliation | Record refuted/inconclusive evidence; do not force a favorable result |
 | A discovery experiment needs a scratch DEV artifact | Preview and approve creation/execution/cleanup within limits |
 | Scratch cleanup fails | Report remaining artifacts and failure; no false cleanup success |
-| A framework request uses `/approach` | Architecture mode; no fabricated fact/dimension model |
+| A framework request uses `/approach` | Platform mode; no fabricated fact/dimension model |
 | `/approach` discovers a duplicated key assumed unique | Interrogate one question at a time with a recommended answer; omit `build-ready` tag until resolved |
 | `/approach` finishes with zero blockers and an agreed seam | Embed draft verification contract in story and apply `build-ready` |
 | A before/after specification is published | Identify observed baseline and proposed state, not fictional deployment |

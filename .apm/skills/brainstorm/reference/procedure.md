@@ -1,6 +1,6 @@
 # /brainstorm procedure
 
-1. **Scope.** Identify the Git consumer root, intent, branch (architecture, experiment/new workload, or data-product semantics), and allowed environments. Read `maq-project.toon` only for required platform dependencies; a missing unused dependency blocks nothing.
+1. **Scope.** Identify the Git consumer root, intent, branch (platform, experiment/new workload, or data-product semantics), and allowed environments. Read `maq-project.toon` only for required platform dependencies; a missing unused dependency blocks nothing.
 2. **Context.** Read `domain\index.md` and only relevant domain files and `references\` entries. If a story ID is given, read it with `azure-devops-wit_work_item` `get` (and `list_comments` if needed). Treat domain observations as hypotheses unless marked reviewed.
 3. **Practices.** Consult /best-practices for each artifact type involved (notebook, pipeline, semantic model, lakehouse, etc.); load only applicable linked pages. Do not recurse. A failed lookup is reported, not hidden.
 4. **Hypotheses.** Write each hypothesis, the evidence that would support it, and the evidence that would refute it. Keep success criteria measurable.

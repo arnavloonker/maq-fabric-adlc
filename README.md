@@ -46,7 +46,7 @@ Invoke from Copilot CLI by name:
 | `/brainstorm` | Explore a problem and capture evidence |
 | `/to-story` | Turn context into an ADO User Story (approved write) |
 | `/domain` | Record business-domain knowledge |
-| `/approach` | Data-product, architecture, or experiment approach with visual lineage and seam verification |
+| `/approach` | Data-product, platform, or experiment approach with visual lineage and seam verification |
 | `/to-tasks` | Vertical-slice ADO Tasks |
 | `/implement` | Build in DEV with TDD at the seam |
 | `/verify` | Verify the seam; separate-context review |
