@@ -1,7 +1,7 @@
 # Approach contract
 
 ## Inputs
-- ADO story ID (required) and mode: `data-product`, `architecture`, or `experiment`.
+- ADO story ID (required) and mode: `data-product`, `platform`, or `experiment`.
 - Optional: exploration findings under `references\explorations\<id>\findings.md`, domain records, repository and workspace identities from `maq-project.toon`.
 - Missing configuration blocks only the dependent operation (for example, no Fabric workspace blocks live validation but not repository-only analysis).
 

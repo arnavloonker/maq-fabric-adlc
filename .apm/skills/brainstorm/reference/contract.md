@@ -1,7 +1,7 @@
 # /brainstorm contract
 
 ## Inputs
-- Intent: data product, architecture/framework, or new Fabric workload (experiment) question.
+- Intent: data product, platform capability/framework, or new Fabric workload (experiment) question.
 - Optional identities: ADO story ID, repository paths, Fabric workspace/item names, semantic model or report.
 - Allowed exploration scope: environments, workspaces, row/time/cost limits. Default is read-only.
 - Platform identifiers from `maq-project.toon` only when needed. Read-only repository brainstorming needs no live-environment credentials or platform configuration.

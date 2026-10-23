@@ -3,7 +3,7 @@
 ## Inputs
 - Conversation context or a selected exploration (`references\explorations\<id>\findings.md`).
 - Optional existing story ID (update mode); otherwise create mode.
-- Consumer-root `maq-project.toon`: ADO organization, project, team, repository, area path, and iteration path. Use `User Story`, native ADO fields, and fixed classification tags `platform-architecture`, `data-engineering`, and `experiment` when applicable. Stop dependent writes if the project process does not support the native type or fields. Missing configuration blocks only dependent operations.
+- Consumer-root `maq-project.toon`: ADO organization, project, team, repository, area path, and iteration path. Use `User Story`, native ADO fields, and fixed classification tags `platform`, `data-engineering`, and `experiment` when applicable. Stop dependent writes if the project process does not support the native type or fields. Missing configuration blocks only dependent operations.
 
 ## Outputs
 - A previewed field change set, then an ADO User Story created or updated after approval.

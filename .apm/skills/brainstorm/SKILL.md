@@ -1,6 +1,6 @@
 ---
 name: brainstorm
-description: Use when testing a Fabric data product, architecture, or new workload hypothesis against repository code and live data before committing to a build.
+description: Use when testing a Fabric data product, platform capability, or new workload hypothesis against repository code and live data before committing to a build.
 ---
 # Brainstorm
 
