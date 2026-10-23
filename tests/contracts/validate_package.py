@@ -45,9 +45,9 @@ for skill in sorted(p for p in skills_dir.iterdir() if p.is_dir()):
             errors.append(f"{skill.name}: bad link {link}")
     if skill.name in WORKFLOW and skill.name != "best-practices" and "best-practices" not in text:
         errors.append(f"{skill.name}: no /best-practices consultation hook")
-    for req in ("contract.md", "procedure.md"):
-        if skill.name in WORKFLOW and not (skill / "reference" / req).is_file():
-            errors.append(f"{skill.name}: missing reference/{req}")
+    for req in ("outcome.md", "procedure.md"):
+        if skill.name in WORKFLOW and not (skill / "references" / req).is_file():
+            errors.append(f"{skill.name}: missing references/{req}")
 
 for rel in ["apm.yml", ".apm/instructions/maq-safety.instructions.md",
             ".apm/agents/maq-adversarial-reviewer.agent.md", "capability-matrix.json",

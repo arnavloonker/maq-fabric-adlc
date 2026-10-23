@@ -4,7 +4,7 @@ description: Use when you need a plain-language impact brief for an Azure DevOps
 ---
 # Code diff
 
-Read [the contract](reference/contract.md) and [the procedure](reference/procedure.md); fill [the brief template](reference/brief-template.md).
+Read [the outcome](references/outcome.md) and [the procedure](references/procedure.md); fill [the brief template](references/brief-template.md).
 
 Inputs: PR identity, optional review iteration, optional story, approach, or verification references.
 Consult /best-practices for the PR and affected artifact types.

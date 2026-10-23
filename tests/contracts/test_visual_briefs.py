@@ -14,7 +14,7 @@ def read_skill(name, filename):
 
 class VisualBriefContracts(unittest.TestCase):
     def test_approach_wires_data_product_views_into_the_specification(self):
-        mode = read_skill("approach", "reference/data-product.md")
+        mode = read_skill("approach", "references/modes/data-product.md")
         for view in (
             "Source and ingestion", "Transformation and lineage", "Data model",
             "Pipeline orchestration", "Serving and operations",
@@ -25,16 +25,16 @@ class VisualBriefContracts(unittest.TestCase):
             with self.subTest(label=label):
                 self.assertIn(label, mode)
         self.assertIn(
-            "[data-product mode](data-product.md)",
-            read_skill("approach", "reference/contract.md"),
+            "[data-product mode](modes/data-product.md)",
+            read_skill("approach", "references/outcome.md"),
         )
         self.assertIn(
             "documentation views",
-            read_skill("approach", "reference/procedure.md"),
+            read_skill("approach", "references/procedure.md"),
         )
 
     def test_er_example_defines_entities_keys_and_cardinalities(self):
-        mode = read_skill("approach", "reference/data-product.md")
+        mode = read_skill("approach", "references/modes/data-product.md")
         diagrams = re.findall(r"```mermaid\n(erDiagram\n.*?)\n```", mode, re.S)
         self.assertEqual(len(diagrams), 1)
         diagram = diagrams[0]
@@ -61,7 +61,7 @@ class VisualBriefContracts(unittest.TestCase):
         self.assertIn("Synthetic example", mode)
 
     def test_data_product_examples_cover_lineage_and_orchestration(self):
-        mode = read_skill("approach", "reference/data-product.md")
+        mode = read_skill("approach", "references/modes/data-product.md")
         self.assertEqual(mode.count("```mermaid"), 3)
         self.assertIn("flowchart LR", mode)
         self.assertIn("flowchart TD", mode)
@@ -70,22 +70,22 @@ class VisualBriefContracts(unittest.TestCase):
 
     def test_code_diff_routes_to_format_appropriate_comparisons(self):
         entry = read_skill("code-diff", "SKILL.md")
-        contract = read_skill("code-diff", "reference/contract.md")
-        procedure = read_skill("code-diff", "reference/procedure.md")
+        outcome = read_skill("code-diff", "references/outcome.md")
+        procedure = read_skill("code-diff", "references/procedure.md")
         self.assertIn("paired Before/After views", entry)
-        self.assertIn("Choose one format per change", contract)
-        for text in (entry, contract, procedure):
+        self.assertIn("Choose one format per change", outcome)
+        for text in (entry, outcome, procedure):
             with self.subTest(text=text.splitlines()[0]):
                 self.assertNotIn("with Mermaid only", text)
                 for output_format in ("table", "artifact", "code"):
                     self.assertIn(output_format, text)
-        self.assertIn("Before = target", contract)
-        self.assertIn("After = source", contract)
-        self.assertIn("not present", contract)
-        self.assertIn("unavailable", contract)
+        self.assertIn("Before = target", outcome)
+        self.assertIn("After = source", outcome)
+        self.assertIn("not present", outcome)
+        self.assertIn("unavailable", outcome)
 
     def test_template_has_paired_alternatives_not_mandatory_duplicates(self):
-        template = read_skill("code-diff", "reference/brief-template.md")
+        template = read_skill("code-diff", "references/brief-template.md")
         self.assertIn("remove the unused alternatives", template)
         for title in ("Table", "Artifact/diagram", "Code-block"):
             with self.subTest(format=title):
@@ -100,15 +100,15 @@ class VisualBriefContracts(unittest.TestCase):
         self.assertIn("class C2 changed", template)
 
     def test_code_example_highlights_additions_and_preserves_context(self):
-        template = read_skill("code-diff", "reference/brief-template.md")
+        template = read_skill("code-diff", "references/brief-template.md")
         self.assertIn("### Code-block view (alternative)\n", template)
         section = template.split("### Code-block view (alternative)\n", 1)[1]
         blocks = re.findall(r"```diff\n(.*?)\n```", section, re.S)
         self.assertEqual(blocks, [" line 1\n line 2", " line 1\n line 2\n+line 3"])
-        contract = read_skill("code-diff", "reference/contract.md")
-        self.assertIn("`-` only in Before", contract)
-        self.assertIn("`+` only in After", contract)
-        self.assertIn("display markers, not source text", contract)
+        outcome = read_skill("code-diff", "references/outcome.md")
+        self.assertIn("`-` only in Before", outcome)
+        self.assertIn("`+` only in After", outcome)
+        self.assertIn("display markers, not source text", outcome)
 
 
 if __name__ == "__main__":

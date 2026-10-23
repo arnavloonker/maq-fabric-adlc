@@ -4,7 +4,7 @@ description: Use when decomposing an Azure DevOps story into vertical child task
 ---
 # To tasks
 
-Read [the contract](reference/contract.md) and [the procedure](reference/procedure.md).
+Read [the outcome](references/outcome.md) and [the procedure](references/procedure.md).
 
 Inputs: story ID, its approach and seam, project sizing conventions.
 Load platform identifiers from `maq-project.toon` and relevant domain records. Consult /best-practices for ADO Task guidance.

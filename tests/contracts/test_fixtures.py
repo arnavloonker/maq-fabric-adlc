@@ -61,17 +61,17 @@ fixed_contracts = {
         "default branch at runtime", "System.Title", "Microsoft.VSTS.Common.AcceptanceCriteria",
         "Never auto-complete, auto-merge, or close", "Closure is human-only",
     ),
-    ".apm/skills/approach/reference/procedure.md": ("build-ready", "revision-checked"),
-    ".apm/skills/implement/reference/procedure.md": ("TDD",),
-    ".apm/skills/verify/reference/procedure.md": ("separate",),
-    ".apm/skills/to-tasks/reference/contract.md": (
+    ".apm/skills/approach/references/procedure.md": ("build-ready", "revision-checked"),
+    ".apm/skills/implement/references/procedure.md": ("TDD",),
+    ".apm/skills/verify/references/procedure.md": ("separate",),
+    ".apm/skills/to-tasks/references/outcome.md": (
         "vertical end-to-end tracer bullets", "one context window", "never horizontal",
         "one granularity question at a time",
     ),
-    ".apm/skills/status/reference/procedure.md": (
+    ".apm/skills/status/references/procedure.md": (
         "30 days", "50 events", "No completion percentage", "Only if asked",
     ),
-    ".apm/skills/best-practices/reference/contract.md": (
+    ".apm/skills/best-practices/references/outcome.md": (
         "pinned revision", "Never assume the consumer repository", "proposed patch only",
     ),
 }

@@ -4,7 +4,7 @@ description: Use when creating or incrementally updating business domain records
 ---
 # Domain
 
-Read [the contract](reference/contract.md) and [the procedure](reference/procedure.md). Start from [the template](reference/domain-template.md).
+Read [the outcome](references/outcome.md) and [the procedure](references/procedure.md). Start from [the template](references/domain-template.md).
 
 Inputs: selected domains, or a request to discover candidate business boundaries.
 Load relevant domain records and references; read `maq-project.toon` only for required platform dependencies.

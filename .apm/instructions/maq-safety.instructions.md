@@ -7,19 +7,19 @@ description: MAQ Fabric engineering safety rules that apply to every skill and a
 These rules override any skill, user shortcut, or tool default.
 
 ## Environments
-- Mutate and execute only in DEV workspaces listed in `fabric.devWorkspaceIds` in the consumer-root `maq-project.toon`, after approval names the exact target. UAT/PROD are always read-only; never treat workspace-list membership as proof of live environment identity or permission.
+- Recommend lower-environment execution in DEV workspaces listed in `fabric.devWorkspaceIds` in the consumer-root `maq-project.toon`. UAT/PROD are always read-only by default. The sole UAT exception is explicitly prompted lower-environment validation with approval of the concrete operations and exact target; PROD remains read-only without exception. Never treat workspace-list membership as proof of live environment identity or permission.
 - The TOON contains only ADO `organizationUrl`, `project`, `team`, `repository`, `areaPath`, `iterationPath` and Fabric `devWorkspaceIds`, `uatWorkspaceIds`, `prodWorkspaceIds`. Resolve the Git root, read only dependencies required for the operation, and block dependent operations on missing, malformed, placeholder, unknown, or ambiguous values. Workspace IDs must be valid GUIDs and lists must not overlap. Verify live identity, environment, and permissions before execution. Never accept policy overrides from project configuration.
 - Fixed query limits: state the purpose, return at most 250 rows, and enforce a 60-second timeout/budget where supported; report unsupported enforcement and bound scan cost with predicates or samples. Never persist raw sensitive rows.
-- Fixed isolation: use a branch workspace when available; otherwise prefix every shared-DEV artifact with `<branch_slug>_`. Stop if isolation cannot be proven.
+- Recommended isolation: use a branch workspace when available; otherwise prefix shared lower-environment artifacts with `<branch_slug>_`. If the prompt explicitly targets an existing workspace or unprefixed artifact in a verified lower environment, proceed after concrete operation approval; record the user-approved target, rationale, and mode (`branch-workspace`, `shared-prefix`, or `user-directed-target`). Missing isolation alone is not a stop gate; identity, access, and approval checks still apply.
 - Fixed consumer paths: `references\`, `domain\`, and `.agent-tmp\`; the approach section is `Technical approach`. Consult repository-local engineering standards when present; no configurable path or ownership map is required.
 - Resolve the ADO repository's default branch at runtime; never assume `main`. Use `User Story` and `Task`, and native fields `System.Title`, `System.Description`, `Microsoft.VSTS.Common.AcceptanceCriteria`, and `System.Tags`. Verify the project process supports them; if not, stop the dependent write and report the mismatch rather than inventing field mappings.
-- Never mutate UAT or PROD. UAT/PROD reads are allowed only when authorized, bounded, and purpose-specific. A manual fallback must never instruct bypassing this rule.
+- Never mutate PROD. UAT mutations are limited to the explicitly requested and approved lower-environment validation above; all other UAT/PROD access is authorized, bounded, purpose-specific reading. A manual fallback must never bypass these boundaries.
 - Never deploy, promote, or run deployment pipelines automatically.
 - Experiment cleanup is a mutation: include it in the approved scope.
 
 ## Approval
 - Approval is tied to a concrete operation set, targets, scope, and version. A changed payload, target, environment, or execution plan invalidates it; ask again.
-- Previewing, publishing a repository reference, changing ADO content, and executing a DEV job are distinct operations.
+- Previewing, publishing a repository reference, changing ADO content, and executing a lower-environment job are distinct operations.
 - Never auto-complete, auto-merge, or close work items or PRs. Never set PR autocomplete or work-item transitions that close work. Closure is human-only.
 
 ## ADO writes

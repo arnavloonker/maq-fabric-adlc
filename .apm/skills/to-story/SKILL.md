@@ -4,7 +4,7 @@ description: Use when turning an agreed discussion or exploration into an Azure 
 ---
 # To story
 
-Read [the contract](reference/contract.md) and [the procedure](reference/procedure.md).
+Read [the outcome](references/outcome.md) and [the procedure](references/procedure.md).
 
 Inputs: conversation or selected exploration, optional story ID.
 Load platform identifiers from `maq-project.toon` and only relevant domain records and references.
