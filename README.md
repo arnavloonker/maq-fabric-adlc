@@ -52,6 +52,7 @@ Invoke from Copilot CLI by name:
 | `/verify` | Verify the seam; separate-context review |
 | `/code-diff` | PR change brief with highlighted Before/After views |
 | `/status` | Read-only sprint summary |
+| `/retro` | Review past skill runs vs initial prompts; issue-ready feedback report |
 | `/best-practices` | Consult or maintain the central practices catalog |
 
 Workflow skills use the relevant skills supplied by `microsoft/fabric-skills` directly. The capability matrix identifies the runtime skill/tool bindings and keeps operations without a supported direct path `blocked` or `manual-only`.

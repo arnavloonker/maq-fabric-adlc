@@ -7,7 +7,7 @@ from pathlib import Path
 root = Path(sys.argv[1] if len(sys.argv) > 1 else Path(__file__).resolve().parents[2])
 skills_dir = root / ".apm" / "skills"
 WORKFLOW = ["brainstorm", "to-story", "domain", "approach", "to-tasks", "implement",
-            "verify", "code-diff", "status", "best-practices"]
+            "verify", "code-diff", "status", "retro", "best-practices"]
 errors = []
 
 for name in WORKFLOW:
