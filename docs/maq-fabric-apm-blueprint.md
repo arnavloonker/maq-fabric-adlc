@@ -98,7 +98,7 @@ maq-fabric-engineering\
       domain\
       approach\
         reference\
-          data-model.md
+          data-product.md
           architecture.md
           experiment.md
       to-tasks\
@@ -322,7 +322,7 @@ The specification identifies repository revision, live observation time and avai
 
 "Deterministic" describes a sufficiently explicit implementation specification: the engineer should not have to invent consequential design choices. It does not promise identical tool calls, identical AI output, or a conflict-free external system.
 
-Data-model mode: commit the selected, evidenced grain, keys, cardinalities, source mappings, history behavior, medallion placement, transformations, quality/reconciliation seam checks, and downstream semantic/report changes. Include fenced Mermaid `erDiagram` views for the current and proposed design, with typed attributes, PK/FK/UK roles, and labeled cardinalities. Distinguish observed facts from proposed decisions; list unknown details and explicitly mark absent or unavailable baselines. Use accompanying tables for transformations and column-level changes. Reuse discovery evidence, validating it when stale; do not repeat discovery merely to satisfy a workflow sequence.
+Data-product mode: trace evidenced sources through ingestion, transformations, medallion layers, model grain/keys/history, pipeline orchestration, serving interfaces, operations, and the selected Seam. Select only consequential documentation views and explain omissions. Use source/mapping tables, lineage and orchestration flowcharts, and current/proposed Mermaid `erDiagram` views where relevant. Distinguish observed facts from proposed decisions; list unknown details and explicitly mark absent or unavailable baselines. Reuse discovery evidence, validating it when stale; do not repeat discovery merely to satisfy a workflow sequence.
 
 Architecture mode: specify current/proposed boundaries, selected interfaces, compatibility, dependencies, rollout/rollback, and parameter-window test seams. Reference the reasons for the selected alternative rather than restarting an unbounded options exercise.
 
