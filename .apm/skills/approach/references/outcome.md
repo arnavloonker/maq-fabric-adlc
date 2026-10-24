@@ -1,0 +1,47 @@
+# Approach outcome
+
+## Inputs
+- ADO story ID (required) and mode: `data-product`, `platform`, or `experiment`.
+- Optional: exploration findings under `references\explorations\<id>\findings.md`, domain records, repository and workspace identities from `maq-project.toon`.
+- Missing configuration blocks only the dependent operation (for example, no Fabric workspace blocks live validation but not repository-only analysis).
+
+## Outputs
+1. A technical approach.md file attached to the Azure Devops user story.
+2. A single **Seam** and a draft **Verification Contract** inside that document.
+3. The fixed `build-ready` tag present or absent on the story.
+4. A final report: story URL, tag state, resolved decisions, open blockers, unvalidated assumptions.
+
+## Approach document required content
+- Provenance: repository revision (commit), live observation time, environment, artifact definition/version where available; exact user-approved target, target mode (`branch-workspace`, `shared-prefix`, or `user-directed-target`), and rationale when departing from defaults.
+- Current behavior (before) and proposed behavior (after). Proposed changes are never described as deployed.
+- In data-product mode, select the relevant source, transformation, model, orchestration, and serving/operations views from [data-product mode](modes/data-product.md). State why any expected view is omitted.
+- Trace every proposed path from an evidenced source through the owning transformation and orchestration artifacts to the selected Seam.
+- Artifact-by-artifact scope: each artifact marked create / update / remove / no-change.
+- Dependencies and interfaces; migration, compatibility, rollout and rollback where relevant.
+- Decisions made, each with the rejected alternatives and reason.
+- Seam and draft Verification Contract (see below).
+
+## Seam
+Exactly one: the highest-level Fabric boundary at which the outcome is observable (for a data product, typically the semantic model measure over gold tables). TDD in `/implement` and the final check in `/verify` must exercise this same Seam.
+
+## Draft Verification Contract
+- Seam identity (workspace, item, artifact version/environment).
+- Applicable checks, each with the exact query, expected value, and tolerance:
+  - Source-to-target reconciliation for the selected window, including rejects or quarantined records.
+  - Gold row counts, e.g. `SELECT COUNT(*) FROM gold.fact_sales` equals the agreed reconciled source count.
+  - Key uniqueness, e.g. `SELECT COUNT(*) - COUNT(DISTINCT sale_id) FROM gold.fact_sales` equals 0.
+  - DAX measure against a known value, e.g. `EVALUATE ROW("TotalSales", [Total Sales])` equals the independently known figure for a stated filter window.
+- Fast-feedback window (partition filter, sample keys, or parameter window) used by `/implement`.
+- Pass/fail rule and what evidence is recorded.
+- Status: `draft` until the user approves it; then `approved` with approver and date.
+
+## Readiness tag
+- Applied only when every consequential decision is resolved AND the contract is approved AND no blocking question is open.
+- Removed (with a comment stating why) if any blocker reopens, the baseline is found stale, or the contract is changed after approval.
+- The tag name is always `build-ready`; never substitute another readiness tag.
+
+## Safety
+- Read-only by default. Recommend bounded DEV experiments with branch-workspace or `<branch_slug>_` isolation; this mode specifies execution rather than running it. Honor explicitly prompted lower-environment workspaces or existing/unprefixed artifacts after concrete operation approval, recording target mode and rationale instead of blocking on isolation alone. Include cleanup in scope.
+- UAT is read-only except explicitly requested and approved lower-environment validation. Never mutate PROD, enable PR auto-complete, or close work items.
+- Missing access yields an explicit unvalidated assumption or blocker, never invented profiling results.
+- No secrets, tokens, connection strings, or raw sensitive rows in the story or findings.

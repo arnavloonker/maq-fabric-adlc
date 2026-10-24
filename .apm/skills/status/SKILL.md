@@ -4,7 +4,7 @@ description: Use when you need a read-only personal sprint summary of your Azure
 ---
 # Status
 
-Read [the contract](reference/contract.md) and [the procedure](reference/procedure.md).
+Read [the outcome](references/outcome.md) and [the procedure](references/procedure.md).
 
 Scope is the signed-in user, the ADO project/team in `maq-project.toon`, plus explicit story, iteration, or person filters. History is fixed at 30 days and 50 events; no status settings are required. Consult /best-practices for ADO User Story and Task guidance.
 

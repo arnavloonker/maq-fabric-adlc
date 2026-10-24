@@ -89,18 +89,19 @@ maq-fabric-engineering\
     skills\
       brainstorm\
         SKILL.md                       fewer than 200 words, complete file
-        reference\
-          contract.md
+        references\
+          outcome.md
           procedure.md
           evidence-template.md
-        script\                        only when an executable helper is needed
+        scripts\                       only when an executable helper is needed
       to-story\
       domain\
       approach\
-        reference\
-          data-product.md
-          platform.md
-          experiment.md
+        references\
+          modes\
+            data-product.md
+            platform.md
+            experiment.md
       to-tasks\
       implement\
       verify\
@@ -108,15 +109,15 @@ maq-fabric-engineering\
       status\
       best-practices\
         SKILL.md
-        reference\
-          contract.md
+        references\
+          outcome.md
           procedure.md
           catalog.md                   links grouped by artifact type only
 ```
 
-Each workflow directory has the same `SKILL.md` and `reference` pattern. A `script` directory is optional; do not create empty scaffolding for its own sake. Fabric and Azure DevOps skills are external APM dependencies, not copied into this package.
+Each workflow directory has the same `SKILL.md` and `references` pattern. A `scripts` directory is optional; do not create empty scaffolding for its own sake. Fabric and Azure DevOps skills are external APM dependencies, not copied into this package.
 
-APM documents conventional `references` and `scripts` resource directories and whole-skill-folder deployment. This design uses the requested singular `reference` and `script` names with explicit relative links. Treat preservation of those names as a package compatibility acceptance check, not a newly invented APM feature. [S3-S4]
+APM documents conventional `references` and `scripts` resource directories and whole-skill-folder deployment. Mode-specific context lives under `references\modes\`. Treat preservation of those names as a package compatibility acceptance check, not a newly invented APM feature. [S3-S4]
 
 ```text
 fabric-project\
@@ -151,7 +152,7 @@ fabric-project\
   .github\agents\                       APM-managed Copilot agents
 ```
 
-Package `reference` files are operating instructions. Consumer `references` files are project knowledge/evidence. Never write project observations into installed package resources.
+Package skill `references` files are operating instructions. Consumer-root `references` files are project knowledge/evidence. Never write project observations into installed package resources.
 
 The practices catalog lives exclusively in the central package. Do not create a consumer `references\best-practices` catalog. A project may record evidence that a practice was considered, but must not turn that record into a competing catalog.
 
@@ -220,7 +221,7 @@ description: Use when turning an agreed discussion into an Azure DevOps story.
 ---
 # To story
 
-Read [the contract](reference/contract.md) and [the procedure](reference/procedure.md).
+Read [the outcome](references/outcome.md) and [the procedure](references/procedure.md).
 
 Load `maq-project.toon` only for required platform identifiers and only relevant domain records and references.
 Consult /best-practices for User Story guidance.
